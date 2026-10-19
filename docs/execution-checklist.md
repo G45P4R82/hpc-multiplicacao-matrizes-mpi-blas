@@ -298,3 +298,6 @@ Arquivos: `results/environment/multinode-submission-1032047.ada.txt`,
 `results/environment/multinode-qstat-1032047.ada.txt`,
 `results/environment/multinode-qstat-latest-1032047.ada.txt` e
 `results/environment/multinode-attempts.txt`.
+
+Inventario final: `results/environment/final-inventory/`, incluindo
+`pbs-and-nodes.txt` e `analysis-summary.txt`.

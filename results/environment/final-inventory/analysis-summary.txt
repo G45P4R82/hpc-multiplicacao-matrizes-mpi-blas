@@ -1,0 +1,35 @@
+BLOCK_MEANS_N2000
+('mpi', '2000', '128', '1') mean_compute=0.985674605
+('mpi', '2000', '128', '2') mean_compute=0.486163887
+('mpi', '2000', '128', '4') mean_compute=0.267216859
+('mpi', '2000', '256', '1') mean_compute=0.874124313
+('mpi', '2000', '256', '2') mean_compute=0.458853243
+('mpi', '2000', '256', '4') mean_compute=0.222121121
+('mpi', '2000', '64', '1') mean_compute=0.957618361
+('mpi', '2000', '64', '2') mean_compute=0.544254749
+('mpi', '2000', '64', '4') mean_compute=0.272765366
+('mpi_blas', '2000', '128', '1') mean_compute=0.235510562
+('mpi_blas', '2000', '128', '2') mean_compute=0.117758930
+('mpi_blas', '2000', '128', '4') mean_compute=0.059573798
+('mpi_blas', '2000', '256', '1') mean_compute=0.195526152
+('mpi_blas', '2000', '256', '2') mean_compute=0.099847245
+('mpi_blas', '2000', '256', '4') mean_compute=0.048887388
+('mpi_blas', '2000', '64', '1') mean_compute=0.316600213
+('mpi_blas', '2000', '64', '2') mean_compute=0.159128777
+('mpi_blas', '2000', '64', '4') mean_compute=0.077233090
+('serial', '2000', '128', '1') mean_compute=0.882474238
+('serial', '2000', '256', '1') mean_compute=0.787843637
+('serial', '2000', '64', '1') mean_compute=0.910983140
+MULTINODE_COMMUNICATION_OVERHEAD
+16 compute=0.017049419 total=0.033803486 overhead=0.016754067
+1 compute=0.234227035 total=0.238347521 overhead=0.004120486
+2 compute=0.117571233 total=0.124113861 overhead=0.006542628
+32 compute=0.011542780 total=0.050780409 overhead=0.039237629
+48 compute=0.010792396 total=0.054514874 overhead=0.043722478
+4 compute=0.058151876 total=0.071404994 overhead=0.013253118
+8 compute=0.029945310 total=0.052022572 overhead=0.022077262
+96 compute=0.013439608 total=0.081402264 overhead=0.067962656
+THEORETICAL_MATRIX_STORAGE
+2000 three_float_matrices_gib=0.044703
+4000 three_float_matrices_gib=0.178814
+6000 three_float_matrices_gib=0.402331

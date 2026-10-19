@@ -105,6 +105,18 @@ loops e chamadas BLAS; blocos maiores reduzem essa sobrecarga, mas aumentam a
 pressao sobre cache. As medidas detalhadas e a variabilidade estao no CSV,
 permitindo comparar cada bloco sem misturar configuracoes.
 
+As medias de `compute_seconds` da versao MPI+OpenBLAS foram:
+
+| Bloco | p=1 | p=2 | p=4 |
+|---:|---:|---:|---:|
+| 64 | 0.316600 | 0.159129 | 0.077233 |
+| 128 | 0.235511 | 0.117759 | 0.059574 |
+| 256 | 0.195526 | 0.099847 | 0.048887 |
+
+Nesse ambiente, o bloco `256` foi o mais rapido nos tres niveis testados. Isso
+e uma observacao experimental para `N=2000` e nao deve ser generalizada para
+matrizes ou arquiteturas diferentes sem nova medicao.
+
 ## Escalabilidade forte
 
 Foi mantido `N` fixo e aumentado o numero de processos entre 1 e 4. A
@@ -135,6 +147,7 @@ Cada configuracao teve tres repeticoes. Os logs estao no diretorio
 Evidencias preservadas:
 
 - `results/environment/inventory/`;
+- `results/environment/final-inventory/`;
 - `results/environment/bash-syntax.txt`;
 - `results/environment/build-final.txt`;
 - `results/environment/build-after-mpi-fix.txt`;
@@ -202,3 +215,14 @@ junto com a submissao bem-sucedida em:
 - `results/environment/multinode-qstat-1032047.ada.txt`;
 - `results/environment/multinode-qstat-latest-1032047.ada.txt`;
 - `results/environment/multinode-attempts.txt`.
+
+O custo de comunicacao pode ser observado pela diferenca entre
+`total_seconds` e `compute_seconds`. No MPI+OpenBLAS multinode, essa diferenca
+foi aproximadamente 0.0041 s em p=1, 0.0221 s em p=8, 0.0437 s em p=48 e
+0.0680 s em p=96 na primeira repeticao. O crescimento do overhead explica
+parte da piora em p=96 e inclui broadcast, distribuicao, sincronizacao e coleta.
+
+As tres matrizes `float` ocupam teoricamente cerca de 0.0447 GiB para
+`N=2000`, 0.1788 GiB para `N=4000` e 0.4023 GiB para `N=6000`, sem contar
+buffers MPI e bibliotecas. Esses valores sao estimativas de armazenamento, nao
+medicoes de RSS; o inventario PBS e os logs preservam os recursos alocados.

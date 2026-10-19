@@ -138,7 +138,10 @@ Antes de finalizar, confirmar que:
 - [`pbs/build.pbs`](pbs/build.pbs): compilação no cluster;
 - [`pbs/run_experiments.pbs`](pbs/run_experiments.pbs): campanha de desempenho;
 - [`scripts/parse_results.py`](scripts/parse_results.py): processamento dos logs;
+- [`scripts/process_results.py`](scripts/process_results.py): geração reproduzível
+  de medições, estatísticas, speedup e eficiência;
 - [`scripts/plot_results.py`](scripts/plot_results.py): geração de gráficos;
+- [`scripts/generate_report_pdf.py`](scripts/generate_report_pdf.py): geração do PDF;
 - [`report/report.md`](report/report.md): modelo do relatório.
 
 O repositório `hpc-benchmark-cenapad` fornecido anteriormente serve apenas
