@@ -8,7 +8,7 @@ from reportlab.lib.enums import TA_CENTER
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
 from reportlab.lib.units import cm
-from reportlab.platypus import Image, PageBreak, Paragraph, SimpleDocTemplate
+from reportlab.platypus import Image, Paragraph, SimpleDocTemplate
 from reportlab.platypus import Spacer, Table, TableStyle
 
 REPOSITORY_URL = "https://github.com/G45P4R82/hpc-multiplicacao-matrizes-mpi-blas"
@@ -38,7 +38,27 @@ def inline(text):
     return text
 
 
-def build_story(source, styles):
+def add_report_image(story, root, styles, alt, target):
+    image_path = (root / "report" / target).resolve()
+    if not image_path.exists():
+        story.append(Paragraph(inline("[Grafico ausente: " + target + "]"), styles["Small"]))
+        return
+    image = Image(str(image_path))
+    max_width = 17 * cm
+    max_height = 10.5 * cm
+    ratio = image.imageHeight / float(image.imageWidth)
+    width = max_width
+    height = width * ratio
+    if height > max_height:
+        height = max_height
+        width = height / ratio
+    image.drawWidth = width
+    image.drawHeight = height
+    story.append(Paragraph(inline("[" + alt + "](" + target + ")"), styles["Heading3"]))
+    story.extend((image, Spacer(1, 8)))
+
+
+def build_story(source, styles, root):
     story = []
     lines = source.splitlines()
     index = 0
@@ -53,6 +73,11 @@ def build_story(source, styles):
             continue
         if line.startswith("## "):
             story.extend((Spacer(1, 8), Paragraph(inline(line[3:]), styles["Heading2"])))
+            index += 1
+            continue
+        image_match = re.match(r"!\[([^\]]+)\]\(([^)]+)\)", line)
+        if image_match:
+            add_report_image(story, root, styles, image_match.group(1), image_match.group(2))
             index += 1
             continue
         if line.startswith("- "):
@@ -98,11 +123,7 @@ def main():
     styles = getSampleStyleSheet()
     styles.add(ParagraphStyle(name="TitleCustom", parent=styles["Title"], alignment=TA_CENTER, spaceAfter=18))
     styles.add(ParagraphStyle(name="Small", parent=styles["BodyText"], fontSize=8, leading=10))
-    story = build_story((root / "report/report.md").read_text(), styles)
-    story.append(PageBreak())
-    story.append(Paragraph("Graficos de desempenho", styles["Heading2"]))
-    for path in sorted((root / "results/plots").glob("report_*.png")):
-        story.extend((Paragraph(path.name, styles["Heading3"]), Image(str(path), width=17 * cm, height=9.4 * cm)))
+    story = build_story((root / "report/report.md").read_text(), styles, root)
     output = root / "report/report.pdf"
     SimpleDocTemplate(str(output), pagesize=A4, rightMargin=1.5 * cm, leftMargin=1.5 * cm,
                       topMargin=1.4 * cm, bottomMargin=1.4 * cm).build(story)
