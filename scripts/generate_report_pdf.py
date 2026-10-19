@@ -11,11 +11,30 @@ from reportlab.lib.units import cm
 from reportlab.platypus import Image, PageBreak, Paragraph, SimpleDocTemplate
 from reportlab.platypus import Spacer, Table, TableStyle
 
+REPOSITORY_URL = "https://github.com/G45P4R82/hpc-multiplicacao-matrizes-mpi-blas"
+
+
+def resolve_link(target):
+    if target.startswith(("http://", "https://", "mailto:", "#")):
+        return target
+    path = target.split("#", 1)[0]
+    while path.startswith("../"):
+        path = path[3:]
+    path = path.lstrip("./")
+    kind = "tree" if target.endswith("/") else "blob"
+    return f"{REPOSITORY_URL}/{kind}/main/{path}"
+
 
 def inline(text):
     text = text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
     text = re.sub(r"`([^`]+)`", r"<font name='Courier'>\1</font>", text)
     text = re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", text)
+    text = re.sub(
+        r"\[([^\]]+)\]\(([^)]+)\)",
+        lambda match: "<link href='" + resolve_link(match.group(2)) +
+        "' color='#1565c0'><u>" + match.group(1) + "</u></link>",
+        text,
+    )
     return text
 
 

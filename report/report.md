@@ -290,6 +290,84 @@ Os artefatos principais sao:
 - `results/plots/`;
 - `report/report.pdf`.
 
+## Mapa de Evidencias e Arquivos
+
+Todos os itens abaixo apontam para o repositorio e podem ser abertos
+diretamente no GitHub.
+
+### Especificacao e Codigo
+
+- [Instrucoes da atividade](../instrucoe.txt)
+- [README e escopo do projeto](../README.md)
+- [CMakeLists.txt](../CMakeLists.txt)
+- [Implementacao serial](../src/serial_mm.cpp)
+- [Implementacao MPI](../src/mpi_mm.cpp)
+- [Implementacao MPI + OpenBLAS](../src/mpi_blas_mm.cpp)
+- [Nucleo da multiplicacao MPI/BLAS](../src/mpi_matmul.cpp)
+- [Funcoes comuns e referencia independente](../src/matmul_common.cpp)
+- [Cabecalhos publicos](../include/matmul_common.hpp)
+
+### Execucao e Reproducibilidade
+
+- [Guia de execucao](../docs/execution-guide.md)
+- [Plano experimental](../docs/experimental-plan.md)
+- [Checklist de execucao](../docs/execution-checklist.md)
+- [PBS de compilacao](../pbs/build.pbs)
+- [PBS da campanha principal](../pbs/run_experiments.pbs)
+- [PBS da campanha multinode](../pbs/run_multinode.pbs)
+- [Coleta do ambiente](../scripts/collect_environment.sh)
+- [Processamento dos logs](../scripts/process_results.py)
+- [Geracao dos graficos](../scripts/plot_results.py)
+- [Geracao deste PDF](../scripts/generate_report_pdf.py)
+- [Dependencias Python](../scripts/requirements.txt)
+
+### Validacao e Logs Brutos
+
+- [Log da validacao independente](../results/raw/correctness/independent-reference.out)
+- [Todos os logs da campanha principal](../results/raw/benchmark-final/)
+- [Campanha principal N=2000](../results/raw/benchmark-final/final-20261019-144917/)
+- [Campanha principal N=4000 e N=6000](../results/raw/benchmark-final/final-20261019-145103/)
+- [Logs da escalabilidade fraca](../results/raw/weak-20261019-145859/)
+- [Logs da campanha PBS multinode](../results/raw/1032047.ada-20261019-163130-multinode/)
+- [Ambiente da campanha multinode](../results/raw/1032047.ada-20261019-163130-multinode/environment.txt)
+- [Nodefile preservado](../results/raw/1032047.ada-20261019-163130-multinode/nodefile)
+
+### Inventario do Cluster e Compilacao
+
+- [Inventario final completo](../results/environment/final-inventory/)
+- [Sistema, CPU e memoria](../results/environment/final-inventory/system.txt)
+- [Comandos, fila, nos e modulos](../results/environment/final-inventory/commands.txt)
+- [PBS e nos alocados](../results/environment/final-inventory/pbs-and-nodes.txt)
+- [Bibliotecas BLAS](../results/environment/final-inventory/blas-libraries.txt)
+- [Resumo dos calculos derivados](../results/environment/final-inventory/analysis-summary.txt)
+- [Pipeline de processamento](../results/environment/process-pipeline.txt)
+- [Log de compilacao final](../results/environment/build-final.txt)
+- [Verificacao final do OpenBLAS](../results/environment/mpi_blas_ldd-final.txt)
+- [Recompilacao e validacao independente](../results/environment/rebuild-independent-validation.txt)
+- [Tentativas e estados dos jobs multinode](../results/environment/multinode-attempts.txt)
+
+### CSVs Processados
+
+- [Medicoes da campanha principal](../results/processed/measurements.csv)
+- [Estatisticas da campanha principal](../results/processed/statistics.csv)
+- [Speedup e eficiencia da campanha principal](../results/processed/speedup_efficiency.csv)
+- [Medicoes multinode](../results/processed/multinode_measurements.csv)
+- [Estatisticas multinode](../results/processed/multinode_statistics.csv)
+- [Speedup e eficiencia multinode](../results/processed/multinode_speedup_efficiency.csv)
+- [Medicoes de escalabilidade fraca](../results/processed/weak_measurements.csv)
+- [Estatisticas de escalabilidade fraca](../results/processed/weak_statistics.csv)
+- [Speedup de escalabilidade fraca](../results/processed/weak_speedup_efficiency.csv)
+
+### Graficos e Entrega
+
+- [Tempo por tamanho da matriz](../results/plots/report_01_tempo_por_tamanho.png)
+- [Efeito do tamanho do bloco](../results/plots/report_02_efeito_bloco.png)
+- [Escalabilidade forte](../results/plots/report_03_escalabilidade_forte.png)
+- [Campanha multinode](../results/plots/report_04_multinode.png)
+- [Escalabilidade fraca](../results/plots/report_05_escalabilidade_fraca.png)
+- [Todos os graficos versionados](../results/plots/)
+- [Relatorio final em PDF](./report.pdf)
+
 ## Conclusao
 
 MPI + OpenBLAS foi a alternativa mais rapida em todas as configuracoes
