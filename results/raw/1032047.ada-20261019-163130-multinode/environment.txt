@@ -1,0 +1,33 @@
+job_id=1032047.ada
+queue=paralela
+hostname=adano27
+date=2026-10-19T16:31:30-03:00
+project_root=/home/lovelace/proj/proj1165/j324077/hpc-multiplicacao-matrizes-mpi-blas
+N_LIST=2000
+BLOCK_LIST=128
+NP_LIST=1 2 4 8 16 32 48 96
+REPETITIONS=3
+OPENBLAS_NUM_THREADS=1
+OMP_NUM_THREADS=1
+
+NODEFILE
+    128 adano05
+    128 adano27
+
+MODULES
+
+Currently Loaded Modules:
+  1) gcc/9.4.0                 3) cmake/4.3.1
+  2) openmpi/4.1.1-gcc-9.4.0   4) openblas/0.3.21-gcc-9.4.0
+
+ 
+
+
+VERSIONS
+/opt/pub/cmake/bin/cmake
+cmake version 4.3.1
+/opt/pub/openmpi/4.1.1/gcc/9.4.0/bin/mpiexec
+mpiexec (OpenRTE) 4.1.1
+
+/opt/ohpc/pub/compiler/gcc/9.4.0/bin/c++
+c++ (GCC) 9.4.0

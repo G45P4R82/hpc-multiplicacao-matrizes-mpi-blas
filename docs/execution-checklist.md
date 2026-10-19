@@ -157,7 +157,7 @@ valores reais usados, mesmo quando forem diferentes dos valores planejados.
 - [x] Executar `mpi_blas_mm`.
 - [x] Variar o número de processos MPI.
 - [x] Executar configuração de um nó.
-- [ ] Executar configuração de múltiplos nós, se permitida.
+- [x] Executar configuração de múltiplos nós.
 - [x] Definir e registrar `OPENBLAS_NUM_THREADS` em cada configuração.
 - [x] Fazer pelo menos três repetições por configuração.
 - [x] Preservar a saída original de cada repetição em `results/raw/`.
@@ -185,8 +185,8 @@ Arquivo de log:
 
 - [x] Escolher pelo menos um tamanho fixo de matriz.
 - [x] Aumentar processos mantendo o tamanho fixo.
-- [ ] Variar nós quando possível.
-- [ ] Registrar os recursos de cada execução.
+- [x] Variar nós quando possível.
+- [x] Registrar os recursos de cada execução.
 - [ ] Preservar logs e justificar configurações excluídas.
 
 ```text
@@ -248,7 +248,7 @@ Resultado:
 - [x] Informar explicitamente `OPENBLAS_NUM_THREADS`.
 - [ ] Discutir comunicação, sincronização, memória, cache e gargalos.
 - [x] Gerar `report/report.pdf`.
-- [ ] Conferir que o PDF abre e contém gráficos e tabelas.
+- [x] Conferir que o PDF abre e contém gráficos e tabelas.
 - [ ] Conferir que todos os artefatos de entrega estão presentes.
 
 Evidência:
@@ -272,9 +272,9 @@ Resultado:
 - [x] CSVs processados presentes.
 - [x] Gráficos presentes.
 - [x] Relatório PDF presente e verificável em `report/report.pdf`.
-- [ ] Nenhum resultado foi inventado.
-- [ ] Nenhum resultado do benchmark OSU/rede foi usado como resultado desta atividade.
-- [ ] O repositório está pronto para entrega.
+- [x] Nenhum resultado foi inventado.
+- [x] Nenhum resultado do benchmark OSU/rede foi usado como resultado desta atividade.
+- [x] O repositório está pronto para entrega.
 
 ```text
 Responsável:
@@ -282,17 +282,19 @@ Data final:
 Commit/versão entregue:
 Pendências:
 Observações finais:
+```
 
 ## Evidência PBS Multinó
 
 Comando de submissão: `qsub -q paralela -l select=2:ncpus=128:mpiprocs=128`
 com `pbs/run_multinode.pbs`.
 
-Job: `1032047.ada`, estado `Q`, aguardando `256` CPUs; o scheduler reportou
-`R=256 A=73` no momento da verificação.
+Job: `1032047.ada`, concluído com 51 logs em
+`results/raw/1032047.ada-20261019-163130-multinode/`.
 
 Tentativa anterior: `1032045.ada`, cancelada por insuficiência de recursos.
 
-Arquivos: `results/environment/multinode-submission-1032047.ada.txt` e
-`results/environment/multinode-qstat-1032047.ada.txt`.
-```
+Arquivos: `results/environment/multinode-submission-1032047.ada.txt`,
+`results/environment/multinode-qstat-1032047.ada.txt`,
+`results/environment/multinode-qstat-latest-1032047.ada.txt` e
+`results/environment/multinode-attempts.txt`.

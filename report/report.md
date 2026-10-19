@@ -128,24 +128,50 @@ Evidencias preservadas:
 - `results/raw/correctness/`;
 - `results/raw/final-*`;
 - `results/raw/weak-*`;
+- `results/raw/1032047.ada-20261019-163130-multinode/`;
 - `results/processed/`;
 - `results/plots/`.
 
-Todos os scripts Bash e PBS passaram por `bash -n`. A campanha multinode e a
-submissao PBS nao foram concluídas nesta rodada porque a sessao usada expôs
-uma CPU e nao houve alocacao PBS registrada para este trabalho. O arquivo
+Todos os scripts Bash e PBS passaram por `bash -n`. O arquivo
 `report/report.pdf` foi gerado com ReportLab e inclui os graficos produzidos.
 
 ## Campanha PBS Multino
 
-O script `pbs/run_multinode.pbs` foi criado para executar em multiplos nos
-com `PBS_NODEFILE`, afinidade e registro de ambiente. A primeira tentativa,
-`1032045.ada`, solicitou dois nos com 256 CPUs na fila `paralela`, mas foi
-cancelada porque o recurso excedia a disponibilidade observada. A segunda
-submissao, `1032047.ada`, usa a mesma alocacao e permanece na fila aguardando
-recursos; o scheduler registrou `R=256` e apenas 73 CPUs livres.
+O script `pbs/run_multinode.pbs` foi executado pelo job `1032047.ada` na fila
+`paralela`, com dois nos e 128 CPUs por no. O arquivo `environment.txt` registra
+os nos efetivamente alocados: `adano05` e `adano27`, com 128 slots cada.
+Foram executadas 51 medicoes: tres repeticoes para serial e tres repeticoes
+para cada uma das versoes MPI nos niveis `1, 2, 4, 8, 16, 32, 48 e 96`
+processos.
 
-Essa submissao e seus estados estao documentados em
-`results/environment/multinode-submission-1032047.ada.txt` e
-`results/environment/multinode-qstat-1032047.ada.txt`. Nenhum resultado
-multino foi incluido nos CSVs antes da execucao real.
+Os resultados foram processados em:
+
+- `results/processed/multinode_measurements.csv`;
+- `results/processed/multinode_statistics.csv`.
+
+Para `N=2000` e bloco `128`, as medias de `compute_seconds` foram:
+
+| Processos | MPI | MPI + OpenBLAS |
+|---:|---:|---:|
+| 1 | 0.972636 | 0.234000 |
+| 2 | 0.490366 | 0.117708 |
+| 4 | 0.244848 | 0.058498 |
+| 8 | 0.122588 | 0.030240 |
+| 16 | 0.061729 | 0.017037 |
+| 32 | 0.031724 | 0.011754 |
+| 48 | 0.022448 | 0.010830 |
+| 96 | 0.017630 | 0.013609 |
+
+Em 96 processos, a versao MPI sem BLAS continuou reduzindo o tempo, mas a
+versao MPI+OpenBLAS apresentou piora em relacao a 48 processos. Isso indica
+custo de comunicacao, desequilibrio ou saturacao para este tamanho de matriz.
+Os valores completos e a variabilidade estao nos CSVs multinode.
+
+A primeira tentativa, `1032045.ada`, solicitou os mesmos recursos, mas foi
+cancelada porque havia apenas 73 CPUs livres. Seus estados estao documentados
+junto com a submissao bem-sucedida em:
+
+- `results/environment/multinode-submission-1032047.ada.txt`;
+- `results/environment/multinode-qstat-1032047.ada.txt`;
+- `results/environment/multinode-qstat-latest-1032047.ada.txt`;
+- `results/environment/multinode-attempts.txt`.
