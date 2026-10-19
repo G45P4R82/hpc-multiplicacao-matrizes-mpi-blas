@@ -1,0 +1,27 @@
+version=mpi_blas
+n=2000
+block=256
+processes=2
+rep=2
+command=OPENBLAS_NUM_THREADS=1 mpiexec -np 2 ./build/mpi_blas_mm --n 2000 --block 256
+[lovelace:728232] *** Process received signal ***
+[lovelace:728232] Signal: Segmentation fault (11)
+[lovelace:728232] Signal code: Address not mapped (1)
+[lovelace:728232] Failing at address: 0x20
+[lovelace:728232] [ 0] /lib64/libpthread.so.0(+0x12990)[0x7fa389ec3990]
+[lovelace:728232] [ 1] /lib64/libc.so.6(+0xa79ab)[0x7fa389b829ab]
+[lovelace:728232] [ 2] /opt/pub/openmpi/4.1.1/gcc/9.4.0/lib/libopen-pal.so.40(+0x4c90c)[0x7fa38936690c]
+[lovelace:728232] [ 3] /opt/pub/openmpi/4.1.1/gcc/9.4.0/lib/libmpi.so.40(ompi_datatype_sndrcv+0x4fa)[0x7fa38b9e152a]
+[lovelace:728232] [ 4] /opt/pub/openmpi/4.1.1/gcc/9.4.0/lib/openmpi/mca_coll_basic.so(mca_coll_basic_gatherv_intra+0x1d2)[0x7fa3720559c2]
+[lovelace:728232] [ 5] /opt/pub/openmpi/4.1.1/gcc/9.4.0/lib/libmpi.so.40(MPI_Gatherv+0xf0)[0x7fa38b9f5d70]
+[lovelace:728232] [ 6] ./build/mpi_blas_mm[0x40a6bb]
+[lovelace:728232] [ 7] /lib64/libc.so.6(__libc_start_main+0xe5)[0x7fa389b15865]
+[lovelace:728232] [ 8] ./build/mpi_blas_mm[0x40a0de]
+[lovelace:728232] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpiexec noticed that process rank 0 with PID 0 on node lovelace exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------

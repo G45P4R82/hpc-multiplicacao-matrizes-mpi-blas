@@ -5,9 +5,12 @@ cmake-build-*/
 *.err
 results/raw/*
 !results/raw/.gitkeep
+!results/raw/**
 results/processed/*
 !results/processed/.gitkeep
+!results/processed/**
 results/plots/*
 !results/plots/.gitkeep
+!results/plots/**
 __pycache__/
 *.pyc

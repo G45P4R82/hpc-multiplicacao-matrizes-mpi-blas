@@ -96,7 +96,7 @@ int run_mpi_matmul(int argc, char** argv, bool use_blas) {
         if (rank == 0) {
             a.resize(elements);
             b.resize(elements);
-            if (options.validate) gathered.resize(elements);
+            gathered.resize(elements);
             fill_random(a, options.seed);
             fill_random(b, options.seed + 1);
         } else {

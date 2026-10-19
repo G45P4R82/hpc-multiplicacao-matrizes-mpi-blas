@@ -1,0 +1,13 @@
+[ 16%] Built target matmul_common
+[ 25%] Building CXX object CMakeFiles/mpi_blas_core.dir/src/mpi_matmul.cpp.o
+[ 33%] Building CXX object CMakeFiles/mpi_matmul_core.dir/src/mpi_matmul.cpp.o
+[ 50%] Built target serial_mm
+[ 66%] Linking CXX static library libmpi_blas_core.a
+[ 66%] Linking CXX static library libmpi_matmul_core.a
+[ 66%] Built target mpi_matmul_core
+[ 66%] Built target mpi_blas_core
+[ 75%] Linking CXX executable mpi_mm
+[ 83%] Linking CXX executable mpi_blas_mm
+[ 91%] Built target mpi_mm
+[100%] Built target mpi_blas_mm
+BUILD_OK

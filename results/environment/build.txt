@@ -1,0 +1,4 @@
+command=cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+bash: cmake: command not found
+command=cmake --build build --parallel
+bash: cmake: command not found

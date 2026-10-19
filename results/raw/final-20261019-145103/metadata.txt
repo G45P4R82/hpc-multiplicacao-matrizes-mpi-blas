@@ -1,0 +1,7 @@
+campaign=strong-single-node
+N_LIST=4000 6000
+BLOCK_LIST=128
+NP_LIST=1 2 4
+REPETITIONS=3
+validation=not_requested
+hostname=lovelace.ada.cenapad.unicamp.br

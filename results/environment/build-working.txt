@@ -1,0 +1,60 @@
+MODULES
+
+Currently Loaded Modules:
+  1) gcc/9.4.0                 3) cmake/4.3.1
+  2) openmpi/4.1.1-gcc-9.4.0   4) openblas/0.3.21-gcc-9.4.0
+
+ 
+
+TOOLS
+/opt/pub/cmake/bin/cmake
+cmake version 4.3.1
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+/opt/pub/openmpi/4.1.1/gcc/9.4.0/bin/mpicxx
+/opt/pub/openmpi/4.1.1/gcc/9.4.0/bin/mpiexec
+/opt/ohpc/pub/compiler/gcc/9.4.0/bin/gcc
+/opt/ohpc/pub/compiler/gcc/9.4.0/bin/c++
+/usr/bin/pkg-config
+OPENBLAS_ROOT=unset
+CONFIGURE
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /opt/ohpc/pub/compiler/gcc/9.4.0/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found MPI_CXX: /opt/pub/openmpi/4.1.1/gcc/9.4.0/lib/libmpi_cxx.so (found version "3.1")
+-- Found MPI: TRUE (found version "3.1") found components: CXX
+-- Configuring done (26.5s)
+-- Generating done (0.2s)
+-- Build files have been written to: /home/lovelace/proj/proj1165/j324077/hpc-multiplicacao-matrizes-mpi-blas/build
+BUILD
+[  8%] Building CXX object CMakeFiles/matmul_common.dir/src/matmul_common.cpp.o
+[ 16%] Linking CXX static library libmatmul_common.a
+[ 16%] Built target matmul_common
+[ 33%] Building CXX object CMakeFiles/serial_mm.dir/src/serial_mm.cpp.o
+[ 33%] Building CXX object CMakeFiles/mpi_blas_core.dir/src/mpi_matmul.cpp.o
+[ 41%] Building CXX object CMakeFiles/mpi_matmul_core.dir/src/mpi_matmul.cpp.o
+[ 50%] Linking CXX executable serial_mm
+[ 50%] Built target serial_mm
+[ 58%] Linking CXX static library libmpi_matmul_core.a
+[ 58%] Built target mpi_matmul_core
+[ 66%] Building CXX object CMakeFiles/mpi_mm.dir/src/mpi_mm.cpp.o
+[ 75%] Linking CXX static library libmpi_blas_core.a
+In file included from /home/lovelace/proj/proj1165/j324077/hpc-multiplicacao-matrizes-mpi-blas/src/mpi_mm.cpp:1:
+/home/lovelace/proj/proj1165/j324077/hpc-multiplicacao-matrizes-mpi-blas/src/mpi_matmul.hpp:4:10: fatal error: matmul_common.hpp: No such file or directory
+    4 | #include "matmul_common.hpp"
+      |          ^~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[2]: *** [CMakeFiles/mpi_mm.dir/build.make:79: CMakeFiles/mpi_mm.dir/src/mpi_mm.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:231: CMakeFiles/mpi_mm.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+[ 75%] Built target mpi_blas_core
+gmake: *** [Makefile:136: all] Error 2
+EXECUTABLES
+ls: cannot access 'build/mpi_mm': No such file or directory
+ls: cannot access 'build/mpi_blas_mm': No such file or directory
+-rwxr-xr-x 1 j324077 proj1165 34432 Oct 19 14:29 build/serial_mm
+LINKS
+ldd: build/mpi_blas_mm: No such file or directory

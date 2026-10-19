@@ -1,0 +1,6 @@
+submitted_at=2026-10-19T15:09:06-03:00
+job_id=1032045.ada
+queue=paralela
+select=2:ncpus=128:mpiprocs=128
+place=scatter:exclhost
+project_root=/home/lovelace/proj/proj1165/j324077/hpc-multiplicacao-matrizes-mpi-blas

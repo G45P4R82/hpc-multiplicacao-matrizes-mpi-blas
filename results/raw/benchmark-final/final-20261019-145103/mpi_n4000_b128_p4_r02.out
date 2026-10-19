@@ -1,0 +1,17 @@
+version=mpi
+n=4000
+block=128
+processes=4
+rep=2
+command=OPENBLAS_NUM_THREADS=1 mpiexec -np 4 ./build/mpi_mm --n 4000 --block 128
+version=mpi
+n=4000
+block=128
+processes=4
+openblas_threads=not_used
+compute_seconds=2.09048212
+total_seconds=2.15379424
+validation_seconds=0
+validation=not_requested
+max_abs_error=0
+max_relative_error=0

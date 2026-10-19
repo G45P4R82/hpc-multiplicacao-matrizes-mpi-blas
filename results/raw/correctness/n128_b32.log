@@ -1,0 +1,36 @@
+TEST serial
+version=serial
+n=128
+block=32
+processes=1
+openblas_threads=not_used
+compute_seconds=0.000319306972
+total_seconds=0.000319306972
+validation_seconds=2.57489737e-05
+validation=ok
+max_abs_error=0
+max_relative_error=0
+TEST mpi
+version=mpi
+n=128
+block=32
+processes=2
+openblas_threads=not_used
+compute_seconds=0.000174632
+total_seconds=0.000632721
+validation_seconds=0.000311942
+validation=ok
+max_abs_error=0
+max_relative_error=0
+TEST mpi_blas
+version=mpi_blas
+n=128
+block=32
+processes=2
+openblas_threads=1
+compute_seconds=0.000509347
+total_seconds=0.000725307
+validation_seconds=0.000311361
+validation=ok
+max_abs_error=7.62939453e-06
+max_relative_error=0.00470212288

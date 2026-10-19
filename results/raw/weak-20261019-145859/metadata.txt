@@ -1,0 +1,6 @@
+campaign=weak-single-node
+CONFIGS=N2000:p1,N2520:p2,N3175:p4
+BLOCK=128
+REPETITIONS=3
+validation=not_requested
+hostname=lovelace.ada.cenapad.unicamp.br

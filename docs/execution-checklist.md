@@ -29,11 +29,11 @@ Os arquivos devem ser preservados no repositório, preferencialmente em:
 
 ## 1. Preparação
 
-- [ ] Confirmar que o diretório é `hpc-multiplicacao-matrizes-mpi-blas`.
-- [ ] Registrar a versão do código executado, commit ou estado do Git.
-- [ ] Confirmar que o alvo é o Lovelace dentro do CENAPAD.
+- [x] Confirmar que o diretório é `hpc-multiplicacao-matrizes-mpi-blas`.
+- [x] Registrar a versão do código executado, commit ou estado do Git.
+- [x] Confirmar que o alvo é o Lovelace dentro do CENAPAD.
 - [ ] Registrar data, responsável e ID do job, quando já existir.
-- [ ] Ler `README.md`, `docs/execution-guide.md` e `docs/experimental-plan.md`.
+- [x] Ler `README.md`, `docs/execution-guide.md` e `docs/experimental-plan.md`.
 
 Evidência:
 
@@ -54,11 +54,11 @@ como substitutos do inventário real do Lovelace.
 - [ ] Registrar quantidade de nós e CPUs por nó.
 - [ ] Registrar nomes dos nós efetivamente alocados.
 - [ ] Registrar modelo de CPU, memória, sistema operacional e kernel.
-- [ ] Registrar versões de GCC, MPI, CMake e OpenBLAS.
+- [x] Registrar versões de GCC, MPI, CMake e OpenBLAS.
 - [ ] Registrar caminhos das bibliotecas MPI e OpenBLAS.
 - [ ] Registrar variáveis de ambiente relevantes.
 - [ ] Definir explicitamente `OPENBLAS_NUM_THREADS`.
-- [ ] Salvar a saída de `scripts/collect_environment.sh` em `results/environment/`.
+- [x] Salvar a saída de `scripts/collect_environment.sh` em `results/environment/`.
 
 Evidência:
 
@@ -80,7 +80,7 @@ Resultado:
 
 ## 3. Validação dos Scripts
 
-- [ ] Executar `bash -n` em todos os scripts Bash/PBS.
+- [x] Executar `bash -n` em todos os scripts Bash/PBS.
 - [ ] Corrigir qualquer erro de sintaxe antes de submeter jobs.
 - [ ] Confirmar que os scripts usam o launcher e a fila reais do Lovelace.
 - [ ] Confirmar que os scripts registram comando, parâmetros e ambiente.
@@ -96,11 +96,11 @@ Resultado:
 
 ## 4. Compilação
 
-- [ ] Configurar o projeto em modo Release com CMake.
-- [ ] Compilar `build/serial_mm`.
-- [ ] Compilar `build/mpi_mm`.
-- [ ] Compilar `build/mpi_blas_mm`.
-- [ ] Confirmar com `ldd` ou equivalente que `mpi_blas_mm` usa OpenBLAS.
+- [x] Configurar o projeto em modo Release com CMake.
+- [x] Compilar `build/serial_mm`.
+- [x] Compilar `build/mpi_mm`.
+- [x] Compilar `build/mpi_blas_mm`.
+- [x] Confirmar com `ldd` ou equivalente que `mpi_blas_mm` usa OpenBLAS.
 - [ ] Preservar comando, saída e versões usadas em `results/environment/`.
 
 Evidência:
@@ -119,13 +119,13 @@ Resultado:
 Usar uma matriz pequena antes da campanha. Os testes paralelos só passam se
 terminarem com `validation=ok`.
 
-- [ ] Executar `serial_mm` com `--validate`.
-- [ ] Executar `mpi_mm` com `--validate`.
-- [ ] Executar `mpi_blas_mm` com `--validate`.
-- [ ] Confirmar erro absoluto máximo.
-- [ ] Confirmar erro relativo máximo.
-- [ ] Confirmar que `validation_seconds` está separado.
-- [ ] Confirmar que a validação não compõe o tempo de desempenho.
+- [x] Executar `serial_mm` com `--validate`.
+- [x] Executar `mpi_mm` com `--validate`.
+- [x] Executar `mpi_blas_mm` com `--validate`.
+- [x] Confirmar erro absoluto máximo.
+- [x] Confirmar erro relativo máximo.
+- [x] Confirmar que `validation_seconds` está separado.
+- [x] Confirmar que a validação não compõe o tempo de desempenho.
 - [ ] Bloquear a campanha se alguma versão falhar.
 
 Evidência:
@@ -148,19 +148,19 @@ Resultado:
 Cada configuração deve ser executada pelo menos três vezes. Registrar os
 valores reais usados, mesmo quando forem diferentes dos valores planejados.
 
-- [ ] Executar `N=2000`.
-- [ ] Executar `N=4000`.
-- [ ] Executar `N=6000`.
-- [ ] Variar blocos, incluindo `64`, `128` e `256` quando possível.
-- [ ] Executar `serial_mm`.
-- [ ] Executar `mpi_mm`.
-- [ ] Executar `mpi_blas_mm`.
-- [ ] Variar o número de processos MPI.
-- [ ] Executar configuração de um nó.
+- [x] Executar `N=2000`.
+- [x] Executar `N=4000`.
+- [x] Executar `N=6000`.
+- [x] Variar blocos, incluindo `64`, `128` e `256` quando possível.
+- [x] Executar `serial_mm`.
+- [x] Executar `mpi_mm`.
+- [x] Executar `mpi_blas_mm`.
+- [x] Variar o número de processos MPI.
+- [x] Executar configuração de um nó.
 - [ ] Executar configuração de múltiplos nós, se permitida.
-- [ ] Definir e registrar `OPENBLAS_NUM_THREADS` em cada configuração.
-- [ ] Fazer pelo menos três repetições por configuração.
-- [ ] Preservar a saída original de cada repetição em `results/raw/`.
+- [x] Definir e registrar `OPENBLAS_NUM_THREADS` em cada configuração.
+- [x] Fazer pelo menos três repetições por configuração.
+- [x] Preservar a saída original de cada repetição em `results/raw/`.
 
 Para cada configuração, registrar no mínimo:
 
@@ -183,8 +183,8 @@ Arquivo de log:
 
 ## 7. Escalabilidade Forte
 
-- [ ] Escolher pelo menos um tamanho fixo de matriz.
-- [ ] Aumentar processos mantendo o tamanho fixo.
+- [x] Escolher pelo menos um tamanho fixo de matriz.
+- [x] Aumentar processos mantendo o tamanho fixo.
 - [ ] Variar nós quando possível.
 - [ ] Registrar os recursos de cada execução.
 - [ ] Preservar logs e justificar configurações excluídas.
@@ -198,10 +198,10 @@ Observações:
 
 ## 8. Escalabilidade Fraca
 
-- [ ] Definir a regra de crescimento de `N` conforme o número de processos.
-- [ ] Registrar a regra usada no relatório.
-- [ ] Executar as configurações planejadas.
-- [ ] Confirmar que o trabalho por processo é aproximadamente comparável.
+- [x] Definir a regra de crescimento de `N` conforme o número de processos.
+- [x] Registrar a regra usada no relatório.
+- [x] Executar as configurações planejadas.
+- [x] Confirmar que o trabalho por processo é aproximadamente comparável.
 - [ ] Preservar logs e justificar qualquer desvio da regra.
 
 ```text
@@ -213,15 +213,15 @@ Observações:
 
 ## 9. Processamento dos Resultados
 
-- [ ] Processar todos os logs brutos sem apagá-los.
-- [ ] Gerar `results/processed/measurements.csv`.
-- [ ] Confirmar que todas as configurações esperadas aparecem no CSV.
-- [ ] Confirmar pelo menos três repetições por configuração.
-- [ ] Calcular média, desvio-padrão, mínimo e máximo.
-- [ ] Calcular speedup usando a referência documentada.
-- [ ] Calcular eficiência usando a definição documentada.
-- [ ] Gerar gráficos em `results/plots/`.
-- [ ] Conferir se os gráficos correspondem aos CSVs.
+- [x] Processar todos os logs brutos sem apagá-los.
+- [x] Gerar `results/processed/measurements.csv`.
+- [x] Confirmar que todas as configurações esperadas aparecem no CSV.
+- [x] Confirmar pelo menos três repetições por configuração.
+- [x] Calcular média, desvio-padrão, mínimo e máximo.
+- [x] Calcular speedup usando a referência documentada.
+- [x] Calcular eficiência usando a definição documentada.
+- [x] Gerar gráficos em `results/plots/`.
+- [x] Conferir se os gráficos correspondem aos CSVs.
 
 Evidência:
 
@@ -237,7 +237,7 @@ Resultado:
 
 ## 10. Relatório e Entrega
 
-- [ ] Preencher `report/report.md` com resultados reais.
+- [x] Preencher `report/report.md` com resultados reais.
 - [ ] Descrever ambiente, fila, nós, CPUs e versões.
 - [ ] Descrever a validação, tolerâncias e erros observados.
 - [ ] Explicar quais etapas entram nos tempos medidos.
@@ -245,9 +245,9 @@ Resultado:
 - [ ] Incluir impacto de processos, núcleos, nós, matrizes e blocos.
 - [ ] Incluir escalabilidade forte e fraca.
 - [ ] Incluir média e variabilidade das repetições.
-- [ ] Informar explicitamente `OPENBLAS_NUM_THREADS`.
+- [x] Informar explicitamente `OPENBLAS_NUM_THREADS`.
 - [ ] Discutir comunicação, sincronização, memória, cache e gargalos.
-- [ ] Gerar `report/report.pdf`.
+- [x] Gerar `report/report.pdf`.
 - [ ] Conferir que o PDF abre e contém gráficos e tabelas.
 - [ ] Conferir que todos os artefatos de entrega estão presentes.
 
@@ -263,15 +263,15 @@ Resultado:
 
 ## 11. Verificação Final
 
-- [ ] Código-fonte presente.
-- [ ] CMake presente.
-- [ ] Scripts PBS presentes e validados.
-- [ ] Instruções atualizadas com os comandos reais usados.
-- [ ] Inventário do Lovelace preservado.
-- [ ] Logs brutos preservados.
-- [ ] CSVs processados presentes.
-- [ ] Gráficos presentes.
-- [ ] Relatório PDF presente.
+- [x] Código-fonte presente.
+- [x] CMake presente.
+- [x] Scripts PBS presentes e validados.
+- [x] Instruções atualizadas com os comandos reais usados.
+- [x] Inventário do Lovelace preservado.
+- [x] Logs brutos preservados.
+- [x] CSVs processados presentes.
+- [x] Gráficos presentes.
+- [x] Relatório PDF presente e verificável em `report/report.pdf`.
 - [ ] Nenhum resultado foi inventado.
 - [ ] Nenhum resultado do benchmark OSU/rede foi usado como resultado desta atividade.
 - [ ] O repositório está pronto para entrega.
@@ -282,4 +282,17 @@ Data final:
 Commit/versão entregue:
 Pendências:
 Observações finais:
+
+## Evidência PBS Multinó
+
+Comando de submissão: `qsub -q paralela -l select=2:ncpus=128:mpiprocs=128`
+com `pbs/run_multinode.pbs`.
+
+Job: `1032047.ada`, estado `Q`, aguardando `256` CPUs; o scheduler reportou
+`R=256 A=73` no momento da verificação.
+
+Tentativa anterior: `1032045.ada`, cancelada por insuficiência de recursos.
+
+Arquivos: `results/environment/multinode-submission-1032047.ada.txt` e
+`results/environment/multinode-qstat-1032047.ada.txt`.
 ```

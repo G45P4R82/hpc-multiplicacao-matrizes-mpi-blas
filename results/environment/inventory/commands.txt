@@ -1,0 +1,26 @@
+
+PBS_ENVIRONMENT
+MKL_NUM_THREADS=1
+MODULEPATH=/home/lovelace/proj/proj1165/j324077/modulefiles:/opt/intel/parallel_studio_xe_2018.3.051/modulefiles:/opt/intel/parallel_studio_xe_2019.5.075/modulefiles:/opt/intel/oneapi/modulefiles:/opt/ohpc/pub/moduledeps/gnu9-openmpi4:/opt/ohpc/pub/moduledeps/gnu9-mvapich2:/opt/ohpc/pub/moduledeps/gnu9:/opt/ohpc/pub/modulefiles:/opt/pub/spack/modulefiles:/opt/pub/modulefiles
+OMP_NUM_THREADS=1
+PATH=/home/lovelace/proj/proj1165/j324077/.opencode/bin:/home/lovelace/proj/proj1165/j324077/.opencode/bin:/home/lovelace/proj/proj1165/j324077/.local/bin:/home/lovelace/proj/proj1165/j324077/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/pbs/bin:/opt/pbs/bin
+
+COMMAND_PATHS
+git=/usr/bin/git
+cmake=c++=/usr/bin/c++
+gcc=/usr/bin/gcc
+mpirun=mpiexec=/opt/pbs/bin/mpiexec
+qsub=/opt/pbs/bin/qsub
+ldd=/usr/bin/ldd
+python3=/usr/bin/python3
+
+VERSIONS
+bash: cmake: command not found
+c++ (GCC) 8.5.0 20210514 (Red Hat 8.5.0-28)
+bash: mpirun: command not found
+
+OPENBLAS_THREADS=unset
+
+GIT_STATUS
+?? results/environment/
+734caec73ac46af258ae220ada214800e7e09f00

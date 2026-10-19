@@ -1,0 +1,94 @@
+#!/bin/bash
+#PBS -N block-matmul-multinode
+#PBS -q parexp
+#PBS -j oe
+#PBS -l select=2:ncpus=48:mpiprocs=48
+#PBS -l place=scatter:exclhost
+#PBS -l walltime=02:00:00
+
+set -euo pipefail
+
+cd "${PROJECT_ROOT:?Defina PROJECT_ROOT}"
+mkdir -p results/raw
+
+module purge 2>/dev/null || true
+module load gcc/9.4.0
+module load openmpi/4.1.1-gcc-9.4.0
+module load cmake/4.3.1
+module load openblas/0.3.21-gcc-9.4.0
+
+export OPENBLAS_NUM_THREADS="${OPENBLAS_THREADS:-1}"
+export OMP_NUM_THREADS="${OMP_THREADS:-1}"
+export MKL_NUM_THREADS="${MKL_THREADS:-1}"
+
+N_LIST="${N_LIST:-2000}"
+BLOCK_LIST="${BLOCK_LIST:-128}"
+NP_LIST="${NP_LIST:-1 2 4 8 16 32 48 96}"
+REPETITIONS="${REPETITIONS:-3}"
+MPIEXEC="${MPIEXEC:-mpiexec}"
+STAMP="$(date +%Y%m%d-%H%M%S)"
+OUT_DIR="results/raw/${PBS_JOBID:-local}-${STAMP}-multinode"
+mkdir -p "$OUT_DIR"
+
+{
+    printf 'job_id=%s\n' "${PBS_JOBID:-local}"
+    printf 'queue=%s\n' "${PBS_QUEUE:-paralela}"
+    printf 'hostname=%s\n' "$(hostname -f)"
+    printf 'date=%s\n' "$(date --iso-8601=seconds)"
+    printf 'project_root=%s\n' "$PWD"
+    printf 'N_LIST=%s\nBLOCK_LIST=%s\nNP_LIST=%s\nREPETITIONS=%s\n' "$N_LIST" "$BLOCK_LIST" "$NP_LIST" "$REPETITIONS"
+    printf 'OPENBLAS_NUM_THREADS=%s\nOMP_NUM_THREADS=%s\n' "$OPENBLAS_NUM_THREADS" "$OMP_NUM_THREADS"
+    printf '\nNODEFILE\n'
+    if [[ -n "${PBS_NODEFILE:-}" && -f "$PBS_NODEFILE" ]]; then
+        sort "$PBS_NODEFILE" | uniq -c
+        cp "$PBS_NODEFILE" "$OUT_DIR/nodefile"
+    else
+        printf 'PBS_NODEFILE=unavailable\n'
+    fi
+    printf '\nMODULES\n'
+    module list 2>&1 || true
+    printf '\nVERSIONS\n'
+    command -v cmake
+    cmake --version | awk 'NR == 1'
+    command -v mpiexec
+    mpiexec --version | awk 'NR <= 2'
+    command -v c++
+    c++ --version | awk 'NR == 1'
+} > "$OUT_DIR/environment.txt" 2>&1
+
+run_one() {
+    local version="$1" n="$2" block="$3" np="$4" rep="$5"
+    local output="${OUT_DIR}/${version}_n${n}_b${block}_p${np}_r$(printf '%02d' "$rep").out"
+    local executable="build/${version}_mm"
+    {
+        printf 'version=%s\nn=%s\nblock=%s\nprocesses=%s\nrep=%s\n' \
+            "$version" "$n" "$block" "$np" "$rep"
+        printf 'job_id=%s\nqueue=%s\nhostname=%s\nopenblas_threads=%s\n' \
+            "${PBS_JOBID:-local}" "${PBS_QUEUE:-unknown}" "$(hostname -f)" "$OPENBLAS_NUM_THREADS"
+        if [[ "$version" == "serial" ]]; then
+            printf 'command=./%s --n %s --block %s\n' "$executable" "$n" "$block"
+            "./$executable" --n "$n" --block "$block"
+        else
+            printf 'command=%s -np %s ./%s --n %s --block %s\n' \
+                "$MPIEXEC" "$np" "$executable" "$n" "$block"
+            OPENBLAS_NUM_THREADS="$OPENBLAS_NUM_THREADS" "$MPIEXEC" -np "$np" \
+                "./$executable" --n "$n" --block "$block"
+        fi
+    } > "$output" 2>&1
+}
+
+printf 'output_dir=%s\n' "$OUT_DIR"
+
+for n in $N_LIST; do
+    for block in $BLOCK_LIST; do
+        for rep in $(seq 1 "$REPETITIONS"); do
+            run_one serial "$n" "$block" 1 "$rep"
+            for np in $NP_LIST; do
+                run_one mpi "$n" "$block" "$np" "$rep"
+                run_one mpi_blas "$n" "$block" "$np" "$rep"
+            done
+        done
+    done
+done
+
+printf 'completed_at=%s\n' "$(date --iso-8601=seconds)"

@@ -1,0 +1,10 @@
+block,compute_seconds,max_abs_error,max_relative_error,n,openblas_threads,processes,rep,total_seconds,validation,validation_seconds,version
+128,0.232509616,0,0,2000,1,1,1,0.236078773,not_requested,0,mpi_blas
+128,0.232577595,0,0,2000,1,1,2,0.236162462,not_requested,0,mpi_blas
+128,0.232832389,0,0,2000,1,1,3,0.236441843,not_requested,0,mpi_blas
+128,0.237709169,0,0,2520,1,2,1,0.247145486,not_requested,0,mpi_blas
+128,0.236928236,0,0,2520,1,2,2,0.246565845,not_requested,0,mpi_blas
+128,0.238005097,0,0,2520,1,2,3,0.247445274,not_requested,0,mpi_blas
+128,0.241171153,0,0,3175,1,4,1,0.284489643,not_requested,0,mpi_blas
+128,0.24092779,0,0,3175,1,4,2,0.278970955,not_requested,0,mpi_blas
+128,0.239413532,0,0,3175,1,4,3,0.280136491,not_requested,0,mpi_blas

@@ -1,0 +1,17 @@
+version=serial
+n=2000
+block=64
+processes=1
+rep=1
+command=./build/serial_mm --n 2000 --block 64
+version=serial
+n=2000
+block=64
+processes=1
+openblas_threads=not_used
+compute_seconds=0.929551897
+total_seconds=0.929551897
+validation_seconds=0
+validation=not_requested
+max_abs_error=0
+max_relative_error=0

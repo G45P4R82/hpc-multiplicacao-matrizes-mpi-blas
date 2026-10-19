@@ -1,0 +1,50 @@
+Job Id: 1032047.ada
+    Job_Name = block-matmul-multinode
+    Job_Owner = j324077@lovelace
+    job_state = Q
+    queue = paralela
+    server = ada
+    Checkpoint = u
+    ctime = Mon Oct 19 15:11:03 2026
+    Error_Path = lovelace:/home/lovelace/proj/proj1165/j324077/hpc-multiplicaca
+	o-matrizes-mpi-blas/block-matmul-multinode.e1032047
+    Hold_Types = n
+    Join_Path = oe
+    Keep_Files = n
+    Mail_Points = a
+    mtime = Mon Oct 19 15:11:03 2026
+    Output_Path = lovelace:/home/lovelace/proj/proj1165/j324077/hpc-multiplicac
+	ao-matrizes-mpi-blas/block-matmul-multinode.o1032047
+    Priority = 0
+    qtime = Mon Oct 19 15:11:03 2026
+    Rerunable = False
+    Resource_List.mpiprocs = 256
+    Resource_List.ncpus = 256
+    Resource_List.nodect = 2
+    Resource_List.place = scatter:exclhost
+    Resource_List.Qlist = paralela
+    Resource_List.select = 2:ncpus=128:mpiprocs=128
+    Resource_List.walltime = 02:00:00
+    substate = 10
+    Variable_List = PBS_O_HOME=/home/lovelace/proj/proj1165/j324077,
+	PBS_O_LANG=en_US.UTF-8,PBS_O_LOGNAME=j324077,
+	PBS_O_PATH=/home/lovelace/proj/proj1165/j324077/.opencode/bin:/home/lo
+	velace/proj/proj1165/j324077/.opencode/bin:/home/lovelace/proj/proj1165
+	/j324077/.local/bin:/home/lovelace/proj/proj1165/j324077/bin:/usr/local
+	/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/pbs/bin:/opt/pbs/bin,
+	PBS_O_MAIL=/var/spool/mail/j324077,PBS_O_SHELL=/bin/bash,
+	PBS_O_WORKDIR=/home/lovelace/proj/proj1165/j324077/hpc-multiplicacao-m
+	atrizes-mpi-blas,PBS_O_SYSTEM=Linux,
+	PROJECT_ROOT=/home/lovelace/proj/proj1165/j324077/hpc-multiplicacao-ma
+	trizes-mpi-blas,N_LIST=2000,BLOCK_LIST=128,NP_LIST=1 2 4 8 16 32 48 96,
+	REPETITIONS=3,OPENBLAS_THREADS=1,OMP_THREADS=1,PBS_O_QUEUE=paralela,
+	PBS_O_HOST=lovelace
+    etime = Mon Oct 19 15:11:03 2026
+    eligible_time = 00:00:00
+    Submit_arguments = -q paralela -l select=2:ncpus=128:mpiprocs=128 -v PROJEC
+	T_ROOT=/home/lovelace/proj/proj1165/j324077/hpc-multiplicacao-matrizes-
+	mpi-blas,N_LIST=2000,BLOCK_LIST=128,NP_LIST=1 2 4 8 16 32 48 96,
+	REPETITIONS=3,OPENBLAS_THREADS=1,OMP_THREADS=1 pbs/run_multinode.pbs
+    project = _pbs_project_default
+    Submit_Host = lovelace
+

@@ -1,0 +1,29 @@
+-- Configuring done (1.6s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/lovelace/proj/proj1165/j324077/hpc-multiplicacao-matrizes-mpi-blas/build
+[ 16%] Built target matmul_common
+[ 33%] Built target serial_mm
+[ 50%] Built target mpi_matmul_core
+[ 66%] Built target mpi_blas_core
+[ 75%] Building CXX object CMakeFiles/mpi_mm.dir/src/mpi_mm.cpp.o
+[ 83%] Building CXX object CMakeFiles/mpi_blas_mm.dir/src/mpi_blas_mm.cpp.o
+[ 91%] Linking CXX executable mpi_mm
+In file included from /home/lovelace/proj/proj1165/j324077/hpc-multiplicacao-matrizes-mpi-blas/src/mpi_blas_mm.cpp:1:
+/home/lovelace/proj/proj1165/j324077/hpc-multiplicacao-matrizes-mpi-blas/src/mpi_matmul.hpp:4:10: fatal error: matmul_common.hpp: No such file or directory
+    4 | #include "matmul_common.hpp"
+      |          ^~~~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[2]: *** [CMakeFiles/mpi_blas_mm.dir/build.make:79: CMakeFiles/mpi_blas_mm.dir/src/mpi_blas_mm.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:264: CMakeFiles/mpi_blas_mm.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+[ 91%] Built target mpi_mm
+gmake: *** [Makefile:136: all] Error 2
+EXECUTABLES
+ls: cannot access 'build/mpi_blas_mm': No such file or directory
+-rwxr-xr-x 1 j324077 proj1165 119032 Oct 19 14:33 build/mpi_mm
+-rwxr-xr-x 1 j324077 proj1165  34432 Oct 19 14:29 build/serial_mm
+LINKS
+ldd: build/mpi_blas_mm: No such file or directory
+STATUS
+ M CMakeLists.txt
+?? results/environment/
