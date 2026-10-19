@@ -56,18 +56,28 @@ def speedups(rows):
     means = {key: sum(values) / len(values) for key, values in groups.items()}
     references = {(n, block): value for (version, n, block, process), value in means.items()
                   if version == "serial"}
+    parallel_references = {(version, n, block): value
+                           for (version, n, block, process), value in means.items()
+                           if process == "1"}
     fields = ["version", "n", "block", "processes", "mean_compute_seconds",
-              "reference_serial_seconds", "speedup", "efficiency"]
+              "reference_serial_seconds", "speedup", "efficiency",
+              "parallel_reference_seconds", "parallel_speedup",
+              "parallel_efficiency"]
     output = []
     for (version, n, block, process), value in sorted(means.items()):
         if version == "serial" or (n, block) not in references:
             continue
         reference = references[(n, block)]
         speedup = reference / value
+        parallel_reference = parallel_references[(version, n, block)]
+        parallel_speedup = parallel_reference / value
         output.append({"version": version, "n": n, "block": block,
                        "processes": process, "mean_compute_seconds": value,
                        "reference_serial_seconds": reference, "speedup": speedup,
-                       "efficiency": speedup / int(process)})
+                       "efficiency": speedup / int(process),
+                       "parallel_reference_seconds": parallel_reference,
+                       "parallel_speedup": parallel_speedup,
+                       "parallel_efficiency": parallel_speedup / int(process)})
     return output, fields
 
 

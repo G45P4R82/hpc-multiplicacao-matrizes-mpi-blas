@@ -9,6 +9,13 @@ o ambiente antes de compilar:
 bash scripts/collect_environment.sh
 ```
 
+Para gerar graficos e o PDF, instalar as dependencias Python disponiveis no
+ambiente:
+
+```bash
+python3 -m pip install -r scripts/requirements.txt
+```
+
 ## Compilação
 
 ```bash
@@ -50,8 +57,9 @@ O script salva comandos, parâmetros, ambiente e saídas em `results/raw/`.
 Após o job:
 
 ```bash
-python3 scripts/parse_results.py --raw-dir results/raw
+python3 scripts/process_results.py --raw-dir results/raw/benchmark-final
 python3 scripts/plot_results.py
+python3 scripts/generate_report_pdf.py
 ```
 
 O launcher pode variar no Lovelace. Se `mpirun` não for o launcher correto,

@@ -82,7 +82,7 @@ def main():
     story = build_story((root / "report/report.md").read_text(), styles)
     story.append(PageBreak())
     story.append(Paragraph("Graficos de desempenho", styles["Heading2"]))
-    for path in sorted((root / "results/plots").glob("compute_time_*.png")):
+    for path in sorted((root / "results/plots").glob("report_*.png")):
         story.extend((Paragraph(path.name, styles["Heading3"]), Image(str(path), width=17 * cm, height=9.4 * cm)))
     output = root / "report/report.pdf"
     SimpleDocTemplate(str(output), pagesize=A4, rightMargin=1.5 * cm, leftMargin=1.5 * cm,
