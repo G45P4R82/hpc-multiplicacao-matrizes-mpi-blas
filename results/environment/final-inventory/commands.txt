@@ -1,0 +1,33 @@
+queue=paralela
+job_id=1032047.ada
+nodes=adano05 adano27
+cpus_per_node=128
+launcher=/opt/pub/openmpi/4.1.1/gcc/9.4.0/bin/mpiexec
+openblas_threads=1
+commit=d42be2b22ad525f6064530d1c56e32dda3f42c43
+
+Currently Loaded Modules:
+  1) gcc/9.4.0                 3) cmake/4.3.1
+  2) openmpi/4.1.1-gcc-9.4.0   4) openblas/0.3.21-gcc-9.4.0
+
+ 
+
+PBS_JOB_HISTORY
+    resources_used.cpupercent = 0
+    resources_used.cput = 00:00:05
+    resources_used.mem = 15096kb
+    resources_used.ncpus = 256
+    resources_used.vmem = 28916kb
+    resources_used.walltime = 00:00:00
+    job_state = F
+    mtime = Mon Oct 19 16:33:23 2026
+    Output_Path = lovelace:/home/lovelace/proj/proj1165/j324077/hpc-multiplicac
+    qtime = Mon Oct 19 15:11:03 2026
+    Resource_List.mpiprocs = 256
+    Resource_List.ncpus = 256
+    Resource_List.nodect = 2
+    Resource_List.place = scatter:exclhost
+    Resource_List.Qlist = paralela
+    Resource_List.select = 2:ncpus=128:mpiprocs=128
+    Resource_List.walltime = 02:00:00
+    stime = Mon Oct 19 16:30:45 2026

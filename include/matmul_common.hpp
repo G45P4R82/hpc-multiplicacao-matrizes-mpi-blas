@@ -26,6 +26,8 @@ void print_usage(const char* program);
 void fill_random(std::vector<float>& matrix, std::uint32_t seed);
 void serial_matmul_tiled(const float* a, const float* b, float* c,
                          std::size_t n, std::size_t block);
+void serial_matmul_reference(const float* a, const float* b, float* c,
+                             std::size_t n);
 ValidationResult validate_result(const std::vector<float>& result,
                                  const std::vector<float>& reference,
                                  float abs_tolerance = 1.0e-3f,

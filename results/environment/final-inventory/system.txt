@@ -1,0 +1,172 @@
+Mon Oct 19 17:00:48 -03 2026
+lovelace.ada.cenapad.unicamp.br
+Linux lovelace.ada.cenapad.unicamp.br 4.18.0-553.150.1.el8_10.x86_64 #1 SMP Fri Jul 31 15:23:31 EDT 2026 x86_64 x86_64 x86_64 GNU/Linux
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              16
+On-line CPU(s) list: 0-15
+Thread(s) per core:  1
+Core(s) per socket:  16
+Socket(s):           1
+NUMA node(s):        1
+Vendor ID:           AuthenticAMD
+CPU family:          23
+Model:               49
+Model name:          AMD EPYC 7282 16-Core Processor
+Stepping:            0
+CPU MHz:             2800.000
+CPU max MHz:         2800.0000
+CPU min MHz:         1500.0000
+BogoMIPS:            5589.23
+Virtualization:      AMD-V
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            512K
+L3 cache:            16384K
+NUMA node0 CPU(s):   0-15
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr wbnoinvd amd_ppin arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif v_spec_ctrl umip rdpid overflow_recov succor smca sme sev sev_es
+              total        used        free      shared  buff/cache   available
+Mem:           62Gi        13Gi       2.5Gi        55Mi        46Gi        45Gi
+Swap:          31Gi        10Gi        21Gi
+
+Environment:
+ ;;
+ ;;
+ ;;
+}
+}
+}
+ACLOCAL_PATH=/opt/pub/cmake/share/aclocal
+BASH_ENV=/opt/ohpc/admin/lmod/lmod/init/bash
+BASH_FUNC_ml%%=() {  eval "$($LMOD_DIR/ml_cmd "$@")"
+BASH_FUNC_module%%=() {  if [ -z "${LMOD_SH_DBG_ON+x}" ]; then
+BASH_FUNC_which%%=() {  ( alias;
+ case "$-" in 
+CMAKE_PREFIX_PATH=/opt/pub/spack/openblas/0.3.21/gcc/9.4.0:/opt/pub/cmake:/opt/pub/openmpi/4.1.1/gcc/9.4.0
+CPATH=/opt/pub/spack/openblas/0.3.21/gcc/9.4.0/include:/opt/pub/openmpi/4.1.1/gcc/9.4.0/include:/opt/ohpc/pub/compiler/gcc/9.4.0/include
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/7904/bus
+ echo "Shell debugging restarted" 1>&2;
+ echo "Shell debugging temporarily silenced: export LMOD_SH_DBG_ON=1 for Lmod's output" 1>&2;
+ esac;
+ eval "$($LMOD_CMD $LMOD_SHELL_PRGM "$@")" && eval "$(${LMOD_SETTARG_CMD:-:} -s sh)";
+ eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
+ fi;
+ fi;
+ fi;
+HISTCONTROL=ignoredups
+HISTSIZE=1000
+HOME=/home/lovelace/proj/proj1165/j324077
+HOSTNAME=lovelace.ada.cenapad.unicamp.br
+ if [ -n "${__lmod_sh_dbg:-}" ]; then
+ if [ -n "${__lmod_sh_dbg:-}" ]; then
+INCLUDE=/opt/ohpc/pub/compiler/gcc/9.4.0/include
+LANG=en_US.UTF-8
+LC_ADDRESS=en_US.UTF-8
+LC_COLLATE=en_US.UTF-8
+LC_CTYPE=en_US.UTF-8
+LC_IDENTIFICATION=en_US.UTF-8
+LC_MEASUREMENT=en_US.UTF-8
+LC_MESSAGES=en_US.UTF-8
+LC_MONETARY=en_US.UTF-8
+LC_NAME=en_US.UTF-8
+LC_NUMERIC=en_US.UTF-8
+LC_PAPER=en_US.UTF-8
+LC_TELEPHONE=en_US.UTF-8
+LC_TIME=en_US.UTF-8
+LD_LIBRARY_PATH=/opt/pub/spack/openblas/0.3.21/gcc/9.4.0/lib:/opt/pub/openmpi/4.1.1/gcc/9.4.0/lib:/opt/pub/hpcx/hpcx-v2.50-gcc-doca_ofed-redhat8-cuda13-x86_64/ucx/mt/lib:/opt/pub/hpcx/hpcx-v2.50-gcc-doca_ofed-redhat8-cuda13-x86_64/hcoll/lib:/opt/pbs/lib:/opt/ohpc/pub/compiler/gcc/9.4.0/lib64
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LIBRARY_PATH=/opt/pub/spack/openblas/0.3.21/gcc/9.4.0/lib:/opt/pub/openmpi/4.1.1/gcc/9.4.0/lib
+_LMFILES_=/opt/pub/spack/modulefiles/gcc/9.4.0:/opt/pub/modulefiles/openmpi/4.1.1-gcc-9.4.0:/opt/pub/modulefiles/cmake/4.3.1:/opt/pub/spack/modulefiles/openblas/0.3.21-gcc-9.4.0
+LMOD_CMD=/opt/ohpc/admin/lmod/lmod/libexec/lmod
+LMOD_COLORIZE=no
+LMOD_DIR=/opt/ohpc/admin/lmod/lmod/libexec
+LMOD_FAMILY_COMPILER=gcc
+LMOD_FAMILY_COMPILER_VERSION=9.4.0
+LMOD_FULL_SETTARG_SUPPORT=no
+LMOD_IGNORE_CACHE=yes
+ __lmod_my_status=$?;
+LMOD_PKG=/opt/ohpc/admin/lmod/lmod
+LMOD_PREPEND_BLOCK=normal
+__LMOD_REF_COUNT_ACLOCAL_PATH=/opt/pub/cmake/share/aclocal:1
+__LMOD_REF_COUNT_CMAKE_PREFIX_PATH=/opt/pub/spack/openblas/0.3.21/gcc/9.4.0:2;/opt/pub/cmake:1;/opt/pub/openmpi/4.1.1/gcc/9.4.0:1
+__LMOD_REF_COUNT_CPATH=/opt/pub/spack/openblas/0.3.21/gcc/9.4.0/include:1;/opt/pub/openmpi/4.1.1/gcc/9.4.0/include:1;/opt/ohpc/pub/compiler/gcc/9.4.0/include:1
+__LMOD_REF_COUNT_INCLUDE=/opt/ohpc/pub/compiler/gcc/9.4.0/include:1
+__LMOD_REF_COUNT_LD_LIBRARY_PATH=/opt/pub/spack/openblas/0.3.21/gcc/9.4.0/lib:1;/opt/pub/openmpi/4.1.1/gcc/9.4.0/lib:1;/opt/pub/hpcx/hpcx-v2.50-gcc-doca_ofed-redhat8-cuda13-x86_64/ucx/mt/lib:1;/opt/pub/hpcx/hpcx-v2.50-gcc-doca_ofed-redhat8-cuda13-x86_64/hcoll/lib:1;/opt/pbs/lib:1;/opt/ohpc/pub/compiler/gcc/9.4.0/lib64:1
+__LMOD_REF_COUNT_LIBRARY_PATH=/opt/pub/spack/openblas/0.3.21/gcc/9.4.0/lib:1;/opt/pub/openmpi/4.1.1/gcc/9.4.0/lib:1
+__LMOD_REF_COUNT_MANPATH=/opt/pub/openmpi/4.1.1/gcc/9.4.0/share/man:1;/opt/ohpc/pub/compiler/gcc/9.4.0/share/man:1;/opt/pbs/share/man:2
+__LMOD_REF_COUNT_MODULEPATH=/opt/ohpc/pub/moduledeps/gnu9:2;/home/lovelace/proj/proj1165/j324077/modulefiles:1;/opt/intel/parallel_studio_xe_2018.3.051/modulefiles:1;/opt/intel/parallel_studio_xe_2019.5.075/modulefiles:1;/opt/intel/oneapi/modulefiles:1;/opt/ohpc/pub/moduledeps/gnu9-openmpi4:1;/opt/ohpc/pub/moduledeps/gnu9-mvapich2:1;/opt/ohpc/pub/modulefiles:1;/opt/pub/spack/modulefiles:1;/opt/pub/modulefiles:1
+__LMOD_REF_COUNT_PATH=/opt/pub/spack/openblas/0.3.21/gcc/9.4.0/bin:2;/opt/pub/cmake/bin:1;/opt/pub/openmpi/4.1.1/gcc/9.4.0/bin:1;/opt/pub/hpcx/hpcx-v2.50-gcc-doca_ofed-redhat8-cuda13-x86_64/ucx/mt/bin:1;/opt/pbs/bin:3;/opt/ohpc/pub/compiler/gcc/9.4.0/bin:1;/home/lovelace/proj/proj1165/j324077/.opencode/bin:2;/home/lovelace/proj/proj1165/j324077/.local/bin:1;/home/lovelace/proj/proj1165/j324077/bin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1
+__LMOD_REF_COUNT_PKG_CONFIG_PATH=/opt/pub/spack/openblas/0.3.21/gcc/9.4.0/lib/pkgconfig:2;/opt/pub/openmpi/4.1.1/gcc/9.4.0/lib/pkgconfig:1
+LMOD_ROOT=/opt/ohpc/admin/lmod
+LMOD_SETTARG_CMD=:
+LMOD_SETTARG_FULL_SUPPORT=no
+ __lmod_sh_dbg='v'
+ __lmod_sh_dbg='vx'
+ __lmod_sh_dbg='x'
+LMOD_SHELL_PRGM=bash
+LMOD_VERSION=8.7.6
+LOADEDMODULES=gcc/9.4.0:openmpi/4.1.1-gcc-9.4.0:cmake/4.3.1:openblas/0.3.21-gcc-9.4.0
+LOGNAME=j324077
+MAIL=/var/spool/mail/j324077
+MANPATH=/opt/pub/openmpi/4.1.1/gcc/9.4.0/share/man:/opt/ohpc/pub/compiler/gcc/9.4.0/share/man::/opt/pbs/share/man
+MKL_NUM_THREADS=1
+MODULEPATH=/opt/ohpc/pub/moduledeps/gnu9:/home/lovelace/proj/proj1165/j324077/modulefiles:/opt/intel/parallel_studio_xe_2018.3.051/modulefiles:/opt/intel/parallel_studio_xe_2019.5.075/modulefiles:/opt/intel/oneapi/modulefiles:/opt/ohpc/pub/moduledeps/gnu9-openmpi4:/opt/ohpc/pub/moduledeps/gnu9-mvapich2:/opt/ohpc/pub/modulefiles:/opt/pub/spack/modulefiles:/opt/pub/modulefiles
+MODULESHOME=/opt/ohpc/admin/lmod/lmod
+_ModuleTable001_=X01vZHVsZVRhYmxlXyA9IHsKTVR2ZXJzaW9uID0gMywKY19yZWJ1aWxkVGltZSA9IGZhbHNlLApjX3Nob3J0VGltZSA9IGZhbHNlLApkZXB0aFQgPSB7fSwKZmFtaWx5ID0gewpjb21waWxlciA9ICJnY2MiLAp9LAptVCA9IHsKY21ha2UgPSB7CmZuID0gIi9vcHQvcHViL21vZHVsZWZpbGVzL2NtYWtlLzQuMy4xIiwKZnVsbE5hbWUgPSAiY21ha2UvNC4zLjEiLApsb2FkT3JkZXIgPSAzLApwcm9wVCA9IHt9LApzdGFja0RlcHRoID0gMCwKc3RhdHVzID0gImFjdGl2ZSIsCnVzZXJOYW1lID0gImNtYWtlLzQuMy4xIiwKd1YgPSAiMDAwMDAwMDA0LjAwMDAwMDAwMy4wMDAwMDAwMDEuKnpmaW5hbCIsCn0sCmdjYyA9IHsKZm4gPSAiL29wdC9wdWIvc3BhY2svbW9kdWxlZmlsZXMv
+_ModuleTable002_=Z2NjLzkuNC4wIiwKZnVsbE5hbWUgPSAiZ2NjLzkuNC4wIiwKbG9hZE9yZGVyID0gMSwKcHJvcFQgPSB7fSwKc3RhY2tEZXB0aCA9IDAsCnN0YXR1cyA9ICJhY3RpdmUiLAp1c2VyTmFtZSA9ICJnY2MvOS40LjAiLAp3ViA9ICIwMDAwMDAwMDkuMDAwMDAwMDA0Lip6ZmluYWwiLAp9LApvcGVuYmxhcyA9IHsKZm4gPSAiL29wdC9wdWIvc3BhY2svbW9kdWxlZmlsZXMvb3BlbmJsYXMvMC4zLjIxLWdjYy05LjQuMCIsCmZ1bGxOYW1lID0gIm9wZW5ibGFzLzAuMy4yMS1nY2MtOS40LjAiLApsb2FkT3JkZXIgPSA0LApwcm9wVCA9IHt9LApzdGFja0RlcHRoID0gMCwKc3RhdHVzID0gImFjdGl2ZSIsCnVzZXJOYW1lID0gIm9wZW5ibGFzLzAuMy4yMS1nY2MtOS40LjAiLAp3ViA9ICIw
+_ModuleTable003_=MDAwMDAwMDAuMDAwMDAwMDAzLjAwMDAwMDAyMS4qZ2NjLip6ZmluYWwtLjAwMDAwMDAwOS4wMDAwMDAwMDQuKnpmaW5hbCIsCn0sCm9wZW5tcGkgPSB7CmZuID0gIi9vcHQvcHViL21vZHVsZWZpbGVzL29wZW5tcGkvNC4xLjEtZ2NjLTkuNC4wIiwKZnVsbE5hbWUgPSAib3Blbm1waS80LjEuMS1nY2MtOS40LjAiLApsb2FkT3JkZXIgPSAyLApwcm9wVCA9IHt9LApzdGFja0RlcHRoID0gMCwKc3RhdHVzID0gImFjdGl2ZSIsCnVzZXJOYW1lID0gIm9wZW5tcGkvNC4xLjEtZ2NjLTkuNC4wIiwKd1YgPSAiMDAwMDAwMDA0LjAwMDAwMDAwMS4wMDAwMDAwMDEuKmdjYy4qemZpbmFsLS4wMDAwMDAwMDkuMDAwMDAwMDA0Lip6ZmluYWwiLAp9LAp9LAptcGF0aEEgPSB7CiIvb3B0L29o
+_ModuleTable004_=cGMvcHViL21vZHVsZWRlcHMvZ251OSIKLCAiL2hvbWUvbG92ZWxhY2UvcHJvai9wcm9qMTE2NS9qMzI0MDc3L21vZHVsZWZpbGVzIgosICIvb3B0L2ludGVsL3BhcmFsbGVsX3N0dWRpb194ZV8yMDE4LjMuMDUxL21vZHVsZWZpbGVzIgosICIvb3B0L2ludGVsL3BhcmFsbGVsX3N0dWRpb194ZV8yMDE5LjUuMDc1L21vZHVsZWZpbGVzIgosICIvb3B0L2ludGVsL29uZWFwaS9tb2R1bGVmaWxlcyIsICIvb3B0L29ocGMvcHViL21vZHVsZWRlcHMvZ251OS1vcGVubXBpNCIKLCAiL29wdC9vaHBjL3B1Yi9tb2R1bGVkZXBzL2dudTktbXZhcGljaDIiLCAiL29wdC9vaHBjL3B1Yi9tb2R1bGVmaWxlcyIKLCAiL29wdC9wdWIvc3BhY2svbW9kdWxlZmlsZXMiLCAiL29wdC9wdWIvbW9k
+_ModuleTable005_=dWxlZmlsZXMiLAp9LApzeXN0ZW1CYXNlTVBBVEggPSAiL2hvbWUvbG92ZWxhY2UvcHJvai9wcm9qMTE2NS9qMzI0MDc3L21vZHVsZWZpbGVzOi9vcHQvaW50ZWwvcGFyYWxsZWxfc3R1ZGlvX3hlXzIwMTguMy4wNTEvbW9kdWxlZmlsZXM6L29wdC9pbnRlbC9wYXJhbGxlbF9zdHVkaW9feGVfMjAxOS41LjA3NS9tb2R1bGVmaWxlczovb3B0L2ludGVsL29uZWFwaS9tb2R1bGVmaWxlczovb3B0L29ocGMvcHViL21vZHVsZWRlcHMvZ251OS1vcGVubXBpNDovb3B0L29ocGMvcHViL21vZHVsZWRlcHMvZ251OS1tdmFwaWNoMjovb3B0L29ocGMvcHViL21vZHVsZWRlcHMvZ251OTovb3B0L29ocGMvcHViL21vZHVsZWZpbGVzOi9vcHQvcHViL3NwYWNrL21vZHVsZWZpbGVzOi9vcHQv
+_ModuleTable006_=cHViL21vZHVsZWZpbGVzIiwKfQo=
+_ModuleTable_Sz_=6
+MPICC=/opt/pub/openmpi/4.1.1/gcc/9.4.0/bin/mpicc
+MPICXX=/opt/pub/openmpi/4.1.1/gcc/9.4.0/bin/mpic++
+MPIF77=/opt/pub/openmpi/4.1.1/gcc/9.4.0/bin/mpif77
+MPIF90=/opt/pub/openmpi/4.1.1/gcc/9.4.0/bin/mpif90
+OLDPWD=/home/lovelace/proj/proj1165/j324077
+OMPI_MCA_coll=^hcoll
+OMP_NUM_THREADS=1
+OPENBLAS_NUM_THREADS=1
+PATH=/opt/pub/spack/openblas/0.3.21/gcc/9.4.0/bin:/opt/pub/cmake/bin:/opt/pub/openmpi/4.1.1/gcc/9.4.0/bin:/opt/pub/hpcx/hpcx-v2.50-gcc-doca_ofed-redhat8-cuda13-x86_64/ucx/mt/bin:/opt/pbs/bin:/opt/ohpc/pub/compiler/gcc/9.4.0/bin:/home/lovelace/proj/proj1165/j324077/.opencode/bin:/home/lovelace/proj/proj1165/j324077/.local/bin:/home/lovelace/proj/proj1165/j324077/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+PKG_CONFIG_PATH=/opt/pub/spack/openblas/0.3.21/gcc/9.4.0/lib/pkgconfig:/opt/pub/openmpi/4.1.1/gcc/9.4.0/lib/pkgconfig
+PWD=/home/lovelace/proj/proj1165/j324077/hpc-multiplicacao-matrizes-mpi-blas
+ return $__lmod_my_status
+S_COLORS=auto
+ set +$__lmod_sh_dbg;
+ set -$__lmod_sh_dbg;
+SHELL=/bin/bash
+SHLVL=3
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+SSH_CLIENT=143.106.42.151 10439 22
+SSH_CONNECTION=143.106.42.151 10439 143.106.42.244 22
+ unset __lmod_sh_dbg;
+USER=j324077
+_=/usr/bin/env
+ *v*)
+ *v*x*)
+which_declare=declare -f
+ *x*)
+XDG_DATA_DIRS=/home/lovelace/proj/proj1165/j324077/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+XDG_RUNTIME_DIR=/run/user/7904
+XDG_SESSION_ID=52050
+
+Modules:
+
+Currently Loaded Modules:
+  1) gcc/9.4.0                 3) cmake/4.3.1
+  2) openmpi/4.1.1-gcc-9.4.0   4) openblas/0.3.21-gcc-9.4.0
+
+ 
+
+
+Compiler/MPI/OpenBLAS:
+c++ (GCC) 9.4.0
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mpirun (Open MPI) 4.1.1
+
+Report bugs to http://www.open-mpi.org/community/help/
+0.3.21

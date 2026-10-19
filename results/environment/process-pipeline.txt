@@ -1,0 +1,9 @@
+command=python3 scripts/process_results.py --raw-dir results/raw/benchmark-final
+measurements=105 statistics=35 speedups=30
+command=python3 scripts/process_results.py --raw-dir results/raw/1032047.ada-20261019-163130-multinode --prefix multinode
+measurements=51 statistics=17 speedups=16
+command=python3 scripts/process_results.py --raw-dir results/raw/weak-20261019-145859 --prefix weak
+measurements=9 statistics=3 speedups=0
+command=python3 scripts/plot_results.py...
+command=python3 scripts/generate_report_pdf.py
+pdf=/home/lovelace/proj/proj1165/j324077/hpc-multiplicacao-matrizes-mpi-blas/report/report.pdf bytes=237048

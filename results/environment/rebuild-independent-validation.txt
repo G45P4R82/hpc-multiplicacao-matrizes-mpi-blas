@@ -1,0 +1,21 @@
+-- Configuring done (29.0s)
+-- Generating done (0.9s)
+-- Build files have been written to: /home/lovelace/proj/proj1165/j324077/hpc-multiplicacao-matrizes-mpi-blas/build
+[  8%] Building CXX object CMakeFiles/matmul_common.dir/src/matmul_common.cpp.o
+[ 16%] Linking CXX static library libmatmul_common.a
+[ 16%] Built target matmul_common
+[ 25%] Building CXX object CMakeFiles/serial_mm.dir/src/serial_mm.cpp.o
+[ 33%] Building CXX object CMakeFiles/mpi_matmul_core.dir/src/mpi_matmul.cpp.o
+[ 41%] Building CXX object CMakeFiles/mpi_blas_core.dir/src/mpi_matmul.cpp.o
+[ 50%] Linking CXX executable serial_mm
+[ 50%] Built target serial_mm
+[ 58%] Linking CXX static library libmpi_matmul_core.a
+[ 58%] Built target mpi_matmul_core
+[ 66%] Building CXX object CMakeFiles/mpi_mm.dir/src/mpi_mm.cpp.o
+[ 75%] Linking CXX static library libmpi_blas_core.a
+[ 75%] Built target mpi_blas_core
+[ 83%] Building CXX object CMakeFiles/mpi_blas_mm.dir/src/mpi_blas_mm.cpp.o
+[ 91%] Linking CXX executable mpi_mm
+[ 91%] Built target mpi_mm
+[100%] Linking CXX executable mpi_blas_mm
+[100%] Built target mpi_blas_mm

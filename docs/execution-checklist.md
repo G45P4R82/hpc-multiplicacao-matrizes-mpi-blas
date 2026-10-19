@@ -32,7 +32,7 @@ Os arquivos devem ser preservados no repositório, preferencialmente em:
 - [x] Confirmar que o diretório é `hpc-multiplicacao-matrizes-mpi-blas`.
 - [x] Registrar a versão do código executado, commit ou estado do Git.
 - [x] Confirmar que o alvo é o Lovelace dentro do CENAPAD.
-- [ ] Registrar data, responsável e ID do job, quando já existir.
+- [x] Registrar data, responsável e ID do job, quando já existir.
 - [x] Ler `README.md`, `docs/execution-guide.md` e `docs/experimental-plan.md`.
 
 Evidência:
@@ -49,15 +49,15 @@ Data/job:
 Executar antes da compilação. Não usar valores do repositório de referência
 como substitutos do inventário real do Lovelace.
 
-- [ ] Registrar fila PBS e formato de alocação.
-- [ ] Registrar launcher MPI e caminho absoluto, se houver.
-- [ ] Registrar quantidade de nós e CPUs por nó.
-- [ ] Registrar nomes dos nós efetivamente alocados.
-- [ ] Registrar modelo de CPU, memória, sistema operacional e kernel.
+- [x] Registrar fila PBS e formato de alocação.
+- [x] Registrar launcher MPI e caminho absoluto, se houver.
+- [x] Registrar quantidade de nós e CPUs por nó.
+- [x] Registrar nomes dos nós efetivamente alocados.
+- [x] Registrar modelo de CPU, memória, sistema operacional e kernel.
 - [x] Registrar versões de GCC, MPI, CMake e OpenBLAS.
-- [ ] Registrar caminhos das bibliotecas MPI e OpenBLAS.
-- [ ] Registrar variáveis de ambiente relevantes.
-- [ ] Definir explicitamente `OPENBLAS_NUM_THREADS`.
+- [x] Registrar caminhos das bibliotecas MPI e OpenBLAS.
+- [x] Registrar variáveis de ambiente relevantes.
+- [x] Definir explicitamente `OPENBLAS_NUM_THREADS`.
 - [x] Salvar a saída de `scripts/collect_environment.sh` em `results/environment/`.
 
 Evidência:
@@ -81,10 +81,10 @@ Resultado:
 ## 3. Validação dos Scripts
 
 - [x] Executar `bash -n` em todos os scripts Bash/PBS.
-- [ ] Corrigir qualquer erro de sintaxe antes de submeter jobs.
-- [ ] Confirmar que os scripts usam o launcher e a fila reais do Lovelace.
-- [ ] Confirmar que os scripts registram comando, parâmetros e ambiente.
-- [ ] Confirmar que os diretórios de resultados existem ou são criados.
+- [x] Corrigir qualquer erro de sintaxe antes de submeter jobs.
+- [x] Confirmar que os scripts usam o launcher e a fila reais do Lovelace.
+- [x] Confirmar que os scripts registram comando, parâmetros e ambiente.
+- [x] Confirmar que os diretórios de resultados existem ou são criados.
 
 Evidência:
 
@@ -101,7 +101,7 @@ Resultado:
 - [x] Compilar `build/mpi_mm`.
 - [x] Compilar `build/mpi_blas_mm`.
 - [x] Confirmar com `ldd` ou equivalente que `mpi_blas_mm` usa OpenBLAS.
-- [ ] Preservar comando, saída e versões usadas em `results/environment/`.
+- [x] Preservar comando, saída e versões usadas em `results/environment/`.
 
 Evidência:
 
@@ -126,7 +126,7 @@ terminarem com `validation=ok`.
 - [x] Confirmar erro relativo máximo.
 - [x] Confirmar que `validation_seconds` está separado.
 - [x] Confirmar que a validação não compõe o tempo de desempenho.
-- [ ] Bloquear a campanha se alguma versão falhar.
+- [x] Bloquear a campanha se alguma versão falhar.
 
 Evidência:
 
@@ -187,7 +187,7 @@ Arquivo de log:
 - [x] Aumentar processos mantendo o tamanho fixo.
 - [x] Variar nós quando possível.
 - [x] Registrar os recursos de cada execução.
-- [ ] Preservar logs e justificar configurações excluídas.
+- [x] Preservar logs e justificar configurações excluídas.
 
 ```text
 Matriz fixa:
@@ -202,7 +202,7 @@ Observações:
 - [x] Registrar a regra usada no relatório.
 - [x] Executar as configurações planejadas.
 - [x] Confirmar que o trabalho por processo é aproximadamente comparável.
-- [ ] Preservar logs e justificar qualquer desvio da regra.
+- [x] Preservar logs e justificar qualquer desvio da regra.
 
 ```text
 Regra de crescimento:
@@ -238,18 +238,18 @@ Resultado:
 ## 10. Relatório e Entrega
 
 - [x] Preencher `report/report.md` com resultados reais.
-- [ ] Descrever ambiente, fila, nós, CPUs e versões.
-- [ ] Descrever a validação, tolerâncias e erros observados.
-- [ ] Explicar quais etapas entram nos tempos medidos.
-- [ ] Incluir tempos, speedup, eficiência e referência dos cálculos.
-- [ ] Incluir impacto de processos, núcleos, nós, matrizes e blocos.
-- [ ] Incluir escalabilidade forte e fraca.
-- [ ] Incluir média e variabilidade das repetições.
+- [x] Descrever ambiente, fila, nós, CPUs e versões.
+- [x] Descrever a validação, tolerâncias e erros observados.
+- [x] Explicar quais etapas entram nos tempos medidos.
+- [x] Incluir tempos, speedup, eficiência e referência dos cálculos.
+- [x] Incluir impacto de processos, núcleos, nós, matrizes e blocos.
+- [x] Incluir escalabilidade forte e fraca.
+- [x] Incluir média e variabilidade das repetições.
 - [x] Informar explicitamente `OPENBLAS_NUM_THREADS`.
-- [ ] Discutir comunicação, sincronização, memória, cache e gargalos.
+- [x] Discutir comunicação, sincronização, memória, cache e gargalos.
 - [x] Gerar `report/report.pdf`.
 - [x] Conferir que o PDF abre e contém gráficos e tabelas.
-- [ ] Conferir que todos os artefatos de entrega estão presentes.
+- [x] Conferir que todos os artefatos de entrega estão presentes.
 
 Evidência:
 

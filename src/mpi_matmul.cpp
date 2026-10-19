@@ -130,7 +130,7 @@ int run_mpi_matmul(int argc, char** argv, bool use_blas) {
             if (options.validate) {
                 std::vector<float> reference(elements);
                 const double validation_start = MPI_Wtime();
-                serial_matmul_tiled(a.data(), b.data(), reference.data(), options.n, options.block);
+                serial_matmul_reference(a.data(), b.data(), reference.data(), options.n);
                 validation = validate_result(gathered, reference);
                 validation_seconds = MPI_Wtime() - validation_start;
             }

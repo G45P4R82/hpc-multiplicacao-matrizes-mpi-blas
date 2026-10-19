@@ -12,9 +12,10 @@ Os resultados sao reais e estao em `results/raw/` e `results/processed/`.
 
 ## Ambiente experimental
 
-- Host: `lovelace.ada.cenapad.unicamp.br`.
+- Host de login: `lovelace.ada.cenapad.unicamp.br`.
+- Host PBS multinode: `adano05` e `adano27`.
 - CPU reportada: AMD EPYC 7282 16-Core Processor.
-- CPUs visiveis na sessao: 1.
+- CPUs visiveis na sessao SSH: 1; a campanha PBS usou 128 slots por no.
 - Memoria reportada: 62 GiB.
 - Kernel: `4.18.0-553.150.1.el8_10.x86_64`.
 - Compilador: GCC 9.4.0, modulo `gcc/9.4.0`.
@@ -27,9 +28,9 @@ Os resultados sao reais e estao em `results/raw/` e `results/processed/`.
 - Launcher usado: `/opt/pub/openmpi/4.1.1/gcc/9.4.0/bin/mpiexec`.
 - `OPENBLAS_NUM_THREADS=1` foi definido nos testes MPI+OpenBLAS.
 
-As execucoes foram feitas diretamente no host acessivel por SSH. Nao foi
-obtida uma alocacao PBS multinode nesta rodada; portanto, os resultados nao
-devem ser interpretados como comparacao entre nos.
+Os testes preliminares foram feitos diretamente no host SSH e sao identificados
+como tal nos logs. A campanha final multinode foi executada pelo PBS no job
+`1032047.ada`; seus recursos e nos estao documentados separadamente.
 
 ## Correcoes realizadas
 
@@ -41,6 +42,10 @@ Tambem foi corrigido um erro de execucao em `src/mpi_matmul.cpp`: o buffer
 `gathered` so era alocado quando `--validate` estava ativo, embora
 `MPI_Gatherv` fosse sempre chamado. Isso causava `SIGSEGV` em qualquer
 benchmark MPI sem validacao.
+
+O arquivo de instrucoes foi mantido como `instrucoe.txt`, que e o nome
+presente no repositorio recebido. A diferenca em relacao ao nome
+`instrucoes.txt` mencionado informalmente foi registrada para evitar ambiguidade.
 
 ## Corretude
 
@@ -56,12 +61,15 @@ Resultados:
 
 | Versao | Max abs | Max relativo | Validacao (s) | Resultado |
 |---|---:|---:|---:|---|
-| serial | 0 | 0 | 0.0000257 | ok |
-| MPI | 0 | 0 | 0.0003119 | ok |
-| MPI + OpenBLAS | 7.62939453e-06 | 0.00470212 | 0.0003114 | ok |
+| serial | 2.86102295e-06 | 0.00520082 | 0.0026518 | ok |
+| MPI | 2.86102295e-06 | 0.00520082 | 0.0026212 | ok |
+| MPI + OpenBLAS | 6.67572021e-06 | 0.00440960 | 0.0027135 | ok |
 
 O tempo de validacao foi medido depois da computacao e nao foi incluido em
 `compute_seconds` ou `total_seconds`.
+
+A referencia usada agora e uma multiplicacao serial independente com os loops
+`i-j-k`, diferente da implementacao tiled usada para computar o resultado.
 
 ## Campanha de desempenho
 
@@ -91,6 +99,12 @@ Exemplos de medias de `compute_seconds` para bloco `128`:
 Esses valores sao medias das tres repeticoes e devem ser analisados junto
 com `statistics.csv`, que contem desvio-padrao, minimo e maximo.
 
+Os blocos `64`, `128` e `256` foram comparados diretamente para `N=2000`.
+Blocos menores aumentam a quantidade de tiles e podem elevar a sobrecarga de
+loops e chamadas BLAS; blocos maiores reduzem essa sobrecarga, mas aumentam a
+pressao sobre cache. As medidas detalhadas e a variabilidade estao no CSV,
+permitindo comparar cada bloco sem misturar configuracoes.
+
 ## Escalabilidade forte
 
 Foi mantido `N` fixo e aumentado o numero de processos entre 1 e 4. A
@@ -99,9 +113,9 @@ mesmo bloco. O speedup paralelo foi calculado como `T(1)/T(p)` e a eficiencia
 como `speedup/p`. Os valores completos estao em
 `results/processed/speedup_efficiency.csv`.
 
-Como os processos foram executados em um host com apenas uma CPU visivel,
-estes resultados medem principalmente oversubscription e nao escalabilidade
-de nucleos fisicos. Nao foi feita afirmacao de escalabilidade multinode.
+Os resultados preliminares de 1 a 4 processos no host SSH medem principalmente
+oversubscription. A campanha PBS multinode, descrita abaixo, e a referencia
+para o impacto de nucleos e nos.
 
 ## Escalabilidade fraca
 
@@ -131,6 +145,18 @@ Evidencias preservadas:
 - `results/raw/1032047.ada-20261019-163130-multinode/`;
 - `results/processed/`;
 - `results/plots/`.
+- `scripts/process_results.py`;
+- `scripts/generate_report_pdf.py`.
+
+O processamento reproduzivel e feito com:
+
+```bash
+python3 scripts/process_results.py --raw-dir results/raw/benchmark-final
+python3 scripts/process_results.py --raw-dir results/raw/1032047.ada-20261019-163130-multinode --prefix multinode
+python3 scripts/process_results.py --raw-dir results/raw/weak-20261019-145859 --prefix weak
+python3 scripts/plot_results.py
+python3 scripts/generate_report_pdf.py
+```
 
 Todos os scripts Bash e PBS passaram por `bash -n`. O arquivo
 `report/report.pdf` foi gerado com ReportLab e inclui os graficos produzidos.
@@ -148,6 +174,7 @@ Os resultados foram processados em:
 
 - `results/processed/multinode_measurements.csv`;
 - `results/processed/multinode_statistics.csv`.
+- `results/processed/multinode_speedup_efficiency.csv`.
 
 Para `N=2000` e bloco `128`, as medias de `compute_seconds` foram:
 

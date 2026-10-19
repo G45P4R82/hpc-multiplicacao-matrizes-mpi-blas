@@ -24,8 +24,9 @@ int main(int argc, char** argv) {
         ValidationResult validation;
         double validation_time = 0.0;
         if (options.validate) {
-            reference = c;
+            reference.resize(elements);
             const double validation_start = wall_time_seconds();
+            serial_matmul_reference(a.data(), b.data(), reference.data(), options.n);
             validation = validate_result(c, reference);
             validation_time = wall_time_seconds() - validation_start;
         }

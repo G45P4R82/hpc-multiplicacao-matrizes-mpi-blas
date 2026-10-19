@@ -1,4 +1,4 @@
-version,n,block,processes,mean_compute_seconds,serial_reference_seconds,speedup_vs_serial,efficiency_vs_serial
+version,n,block,processes,mean_compute_seconds,reference_serial_seconds,speedup,efficiency
 mpi,2000,128,1,0.9726356496666666,0.8756086546666667,0.900243225679367,0.900243225679367
 mpi,2000,128,16,0.061729134,0.8756086546666667,14.18469040350812,0.8865431502192574
 mpi,2000,128,2,0.490366227,0.8756086546666667,1.7856218606724454,0.8928109303362227
