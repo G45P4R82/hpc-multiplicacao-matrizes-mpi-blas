@@ -1,0 +1,70 @@
+Pular para o conteúdo principal
+Google Sala de Aula
+Sala de Aula
+MO652/MC960 26S2
+Início
+Agenda
+Gemini
+Minhas inscrições
+Pendentes
+P
+P_MO629A_2026S2
+M
+MO652/MC960 26S2
+P
+P_MO630A_2026S1
+P
+P_MO809A_2026S1
+Turmas arquivadas
+Configurações
+Detalhes da atividade
+assignment
+Desenvolvimento: Multiplicação de Matrizes em Blocos com MPI e BLAS
+Hervé Yviquel
+•
+15 de out.
+10 pontos
+|
+Data de entrega: 29 de out.
+Neste exercício, você deverá implementar a multiplicação de matrizes em blocos utilizando MPI e OpenBLAS. O objetivo é explorar a distribuição do trabalho entre processos MPI e o uso de rotinas BLAS para otimizar as multiplicações locais, avaliando a corretude, o desempenho e a escalabilidade da implementação.
+
+Implementação
+
+O programa deverá multiplicar duas matrizes quadradas em ponto flutuante de precisão simples (float) e oferecer três versões:
+Serial: execução em um único processo, sem utilizar BLAS.
+MPI: multiplicação em blocos, com distribuição do trabalho entre processos MPI, sem utilizar BLAS.
+MPI + OpenBLAS: distribuição do trabalho com MPI e uso do OpenBLAS para realizar as multiplicações locais dos blocos.
+O código deverá ser modular, documentado e seguir boas práticas de programação paralela. Os tamanhos das matrizes e dos blocos deverão ser configuráveis.
+
+Verificação de corretude
+
+É obrigatório verificar a corretude dos resultados das versões paralelas, comparando-os com uma implementação de referência, como a versão serial. A comparação deverá considerar uma tolerância numérica adequada à precisão simples, pois diferenças na ordem das operações podem produzir pequenas variações nos resultados.
+
+O programa deverá informar se a verificação foi bem-sucedida e apresentar uma medida do erro. O relatório deverá descrever o procedimento de validação, a tolerância adotada e os resultados obtidos. O tempo gasto na validação deverá ser medido separadamente e não deverá compor o tempo usado na análise de desempenho.
+
+Arquivos e execução no cluster
+
+Deverão ser entregues todos os arquivos necessários para compilar e executar o programa no cluster Lovelace, incluindo:
+Código-fonte.
+Arquivos de configuração do CMake.
+Script(s) PBS para compilação e submissão das execuções.
+Instruções de compilação e execução.
+Os scripts deverão permitir executar as três versões para diferentes tamanhos de matrizes, como 2000 × 2000, 4000 × 4000 e 6000 × 6000, além de variar os tamanhos dos blocos, o número de processos MPI e o número de nós. O número de threads utilizado pelo OpenBLAS deverá ser configurado explicitamente e informado no relatório.
+
+Relatório de desempenho
+
+Deverá ser entregue um relatório em PDF comparando as três versões. A análise deverá incluir:
+Tempos de execução, speedup e eficiência, com indicação clara da referência utilizada nos cálculos.
+Impacto do número de processos MPI, numero de núcleos e numero de nós.
+Influência dos tamanhos das matrizes e dos blocos.
+Escalabilidade forte: aumento dos recursos computacionais mantendo fixo o tamanho do problema.
+Escalabilidade fraca: aumento do tamanho do problema de modo a manter aproximadamente constante o trabalho computacional por processo.
+O relatório deverá descrever a configuração experimental e quais etapas estão incluídas na medição dos tempos. Cada configuração deverá ser executada múltiplas vezes, apresentando uma medida representativa e a variabilidade observada. Recomenda-se o uso de gráficos e tabelas, acompanhado de uma discussão dos ganhos de desempenho e dos gargalos identificados.
+
+Critérios de avaliação
+
+O projeto será avaliado com base na corretude dos resultados, no uso adequado de MPI e OpenBLAS, na organização e clareza do código, na reprodutibilidade das execuções e na qualidade da análise de desempenho e escalabilidade.
+Comentários da turma
+Seus trabalhos
+Atribuído
+Comentários particulares

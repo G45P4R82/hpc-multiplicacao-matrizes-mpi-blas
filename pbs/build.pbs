@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -N block-matmul-build
+#PBS -j oe
+#PBS -l walltime=00:20:00
+#PBS -l nodes=1:ppn=1
+
+set -euo pipefail
+cd "${PROJECT_ROOT:?Defina PROJECT_ROOT}"
+
+module purge 2>/dev/null || true
+module load gcc 2>/dev/null || true
+module load openmpi 2>/dev/null || module load mpi 2>/dev/null || true
+module load openblas 2>/dev/null || true
+
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --parallel "${BUILD_JOBS:-1}"
+echo "build_dir=$(pwd)/build"

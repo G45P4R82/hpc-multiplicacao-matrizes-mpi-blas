@@ -1,0 +1,59 @@
+#!/bin/bash
+#PBS -N block-matmul
+#PBS -j oe
+#PBS -l walltime=04:00:00
+#PBS -l nodes=1:ppn=4
+
+set -euo pipefail
+cd "${PROJECT_ROOT:?Defina PROJECT_ROOT}"
+mkdir -p results/raw
+
+module purge 2>/dev/null || true
+module load gcc 2>/dev/null || true
+module load openmpi 2>/dev/null || module load mpi 2>/dev/null || true
+module load openblas 2>/dev/null || true
+
+export OPENBLAS_NUM_THREADS="${OPENBLAS_THREADS:-1}"
+export OMP_NUM_THREADS="${OMP_THREADS:-1}"
+export MKL_NUM_THREADS="${MKL_THREADS:-1}"
+
+N_LIST="${N_LIST:-2000 4000 6000}"
+BLOCK_LIST="${BLOCK_LIST:-64 128 256}"
+NP_LIST="${NP_LIST:-1 2 4}"
+REPETITIONS="${REPETITIONS:-3}"
+MPIEXEC="${MPIEXEC:-mpirun}"
+STAMP="$(date +%Y%m%d-%H%M%S)"
+OUT_DIR="results/raw/${PBS_JOBID:-local}-${STAMP}"
+mkdir -p "$OUT_DIR"
+
+run_one() {
+    local version="$1" n="$2" block="$3" np="$4" rep="$5"
+    local output="${OUT_DIR}/${version}_n${n}_b${block}_p${np}_r$(printf '%02d' "$rep").out"
+    local executable="build/${version}_mm"
+    local command
+    if [[ "$version" == "serial" ]]; then
+        command="./${executable} --n ${n} --block ${block} --validate"
+    else
+        command="${MPIEXEC} -np ${np} ./$(printf '%s' "$executable") --n ${n} --block ${block} --validate"
+    fi
+    {
+        printf 'version=%s\nn=%s\nblock=%s\nprocesses=%s\nrep=%s\n' "$version" "$n" "$block" "$np" "$rep"
+        printf 'command=%s\n' "$command"
+        printf 'hostname=%s\n' "$(hostname)"
+        printf 'openblas_threads=%s\n' "$OPENBLAS_NUM_THREADS"
+        printf '%s\n' '--- output ---'
+        eval "$command"
+    } >"$output" 2>&1
+}
+
+for n in $N_LIST; do
+    for block in $BLOCK_LIST; do
+        for rep in $(seq 1 "$REPETITIONS"); do
+            run_one serial "$n" "$block" 1 "$rep"
+            for np in $NP_LIST; do
+                run_one mpi "$n" "$block" "$np" "$rep"
+                run_one mpi_blas "$n" "$block" "$np" "$rep"
+            done
+        done
+    done
+done

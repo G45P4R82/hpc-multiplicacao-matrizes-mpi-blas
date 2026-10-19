@@ -1,0 +1,13 @@
+build/
+cmake-build-*/
+*.o
+*.out
+*.err
+results/raw/*
+!results/raw/.gitkeep
+results/processed/*
+!results/processed/.gitkeep
+results/plots/*
+!results/plots/.gitkeep
+__pycache__/
+*.pyc
